@@ -4,6 +4,12 @@ import s from "./Users.module.css";
 import user from "../../assets/images/avatar.png";
 
 class Users extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pageCount: Math.ceil(this.props.totalUsersCount / this.props.pageSize),
+    };
+  }
   pageChanging = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     axios
@@ -38,10 +44,7 @@ class Users extends React.Component {
   // };
 
   nextPage = (pageNumber) => {
-    if (
-      pageNumber === Math.ceil(this.props.totalUsersCount / this.props.pageSize)
-    )
-      return;
+    if (pageNumber === this.state.pageCount) return;
     let newNumber = ++pageNumber;
     this.pageChanging(newNumber);
   };
@@ -53,10 +56,7 @@ class Users extends React.Component {
   };
 
   lastPage = () => {
-    const newNumber = Math.ceil(
-      this.props.totalUsersCount / this.props.pageSize
-    );
-
+    const newNumber = this.state.pageCount;
     if (this.props.currentPage === newNumber) return;
     this.pageChanging(newNumber);
   };

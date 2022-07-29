@@ -1,0 +1,12 @@
+img {
+  width: 100%;
+}
+
+.banner {
+  height: 100px;
+  object-fit: cover;
+}
+
+.item {
+  text-align: start;
+}

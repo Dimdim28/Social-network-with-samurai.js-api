@@ -1,0 +1,13 @@
+.item {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.item img {
+  max-width: 50px;
+  border-radius: 50%;
+}

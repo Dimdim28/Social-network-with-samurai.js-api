@@ -1,0 +1,37 @@
+.message {
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+.first {
+  justify-content: flex-start;
+}
+
+.first .avatar {
+  margin-right: 40px;
+}
+.second {
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.second .avatar {
+  margin-left: 40px;
+}
+
+.avatar {
+  height: 54px;
+  width: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.text {
+  background-color: rgb(3, 59, 17);
+  border-radius: 10px;
+  padding: 20px;
+}

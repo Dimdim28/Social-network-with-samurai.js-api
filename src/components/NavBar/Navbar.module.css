@@ -1,0 +1,26 @@
+* {
+  font-size: 20px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  grid-area: n;
+  background-color: rgb(2, 122, 32);
+  padding-left: 5px;
+}
+
+.item {
+  color: white;
+  margin: 10px 0;
+}
+
+.active {
+  color: gold;
+  text-decoration: none;
+}
+
+.inactive {
+  color: #fff;
+  text-decoration: none;
+}

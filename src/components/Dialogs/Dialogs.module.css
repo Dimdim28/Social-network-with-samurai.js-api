@@ -1,0 +1,69 @@
+.dialogs {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+  color: white;
+  height: 100%;
+}
+
+.dialogItems {
+  height: 100%;
+  background-color: rgb(43, 131, 65);
+}
+
+.dialog {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: 0.5s;
+}
+
+.dialog:hover {
+  background-color: rgb(49, 167, 69);
+}
+
+.avatar {
+  height: 54px;
+  width: 54px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 40px;
+}
+
+.active {
+  color: gold;
+}
+.messages {
+  padding: 20px;
+}
+
+.addMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.inputMessage {
+  width: 90%;
+  outline: none;
+  border: 2px solid greenyellow;
+  border-radius: 10px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.addButton {
+  outline: none;
+  width: 200px;
+  height: 40px;
+  border: 2px solid greenyellow;
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin-top: 20px;
+}
+
+.addButton:active {
+  border: 2px solid rgb(194, 243, 120);
+  background-color: #fff;
+}

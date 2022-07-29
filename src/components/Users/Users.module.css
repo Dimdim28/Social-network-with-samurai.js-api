@@ -1,0 +1,77 @@
+.user {
+  display: flex;
+  margin: 40px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 150px;
+  margin-right: 20px;
+}
+
+.image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.button {
+  outline: none;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.follow {
+  background-color: rgb(151, 228, 50);
+}
+
+.unfollow {
+  background-color: rgb(247, 80, 80);
+}
+
+.info {
+  background-color: rgb(3, 59, 17);
+  width: 650px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.location {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.status {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.line {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.choosed {
+  font-weight: 900;
+}

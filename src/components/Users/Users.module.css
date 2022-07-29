@@ -72,6 +72,13 @@
   width: 100%;
   justify-content: center;
 }
-.choosed {
-  font-weight: 900;
+
+.line span {
+  margin: 20px;
+  border-radius: 50%;
+  background-color: rgb(3, 59, 17);
+  padding: 10px;
+  font-weight: 800;
+  color: white;
+  font-size: 30px;
 }

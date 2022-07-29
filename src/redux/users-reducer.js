@@ -4,6 +4,8 @@ export const types = {
   SU: "SET_USERS",
   SCP: "SET_CURRENT_PAGE",
   SUTC: "SET_USERS_TOTAL_COUNT",
+  NP: "NEXT_PAGE",
+  PP: "PREVIOUS_PAGE",
 };
 
 let initialState = {

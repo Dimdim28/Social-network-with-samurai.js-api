@@ -4,6 +4,17 @@ import s from "./Users.module.css";
 import user from "../../assets/images/avatar.png";
 
 class Users extends React.Component {
+  pageChanging = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+      )
+      .then((res) => {
+        this.props.setUsers(res.data.items);
+      });
+  };
+
   componentDidMount() {
     axios
       .get(
@@ -15,19 +26,49 @@ class Users extends React.Component {
       });
   }
 
-  onPageChanged = (pageNumber) => {
-    this.props.setCurrentPage(pageNumber);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
-      )
-      .then((res) => {
-        this.props.setUsers(res.data.items);
-      });
+  // onPageChanged = (pageNumber) => {
+  //   this.props.setCurrentPage(pageNumber);
+  //   axios
+  //     .get(
+  //       `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+  //     )
+  //     .then((res) => {
+  //       this.props.setUsers(res.data.items);
+  //     });
+  // };
+
+  nextPage = (pageNumber) => {
+    if (
+      pageNumber === Math.ceil(this.props.totalUsersCount / this.props.pageSize)
+    )
+      return;
+    let newNumber = ++pageNumber;
+    this.pageChanging(newNumber);
+  };
+
+  prevPage = (pageNumber) => {
+    if (pageNumber === 1) return;
+    let newNumber = --pageNumber;
+    this.pageChanging(newNumber);
+  };
+
+  lastPage = () => {
+    const newNumber = Math.ceil(
+      this.props.totalUsersCount / this.props.pageSize
+    );
+
+    if (this.props.currentPage === newNumber) return;
+    this.pageChanging(newNumber);
+  };
+
+  firstPage = () => {
+    const newNumber = 1;
+    if (this.props.currentPage === newNumber) return;
+    this.pageChanging(newNumber);
   };
 
   render() {
-    let pagesCount = Math.round(
+    let pagesCount = Math.ceil(
       this.props.totalUsersCount / this.props.pageSize
     );
     let pages = [];
@@ -37,14 +78,15 @@ class Users extends React.Component {
     return (
       <>
         <div className={s.line}>
-          {pages.map((ind) => (
-            <span
-              className={this.props.currentPage === ind && s.choosed}
-              onClick={() => this.onPageChanged(ind)}
-            >
-              {ind}
-            </span>
-          ))}
+          <span onClick={() => this.firstPage()}>{"<<"}</span>
+          <span onClick={() => this.prevPage(this.props.currentPage)}>
+            {"<--"}
+          </span>
+          <span>{this.props.currentPage}</span>
+          <span onClick={() => this.nextPage(this.props.currentPage)}>
+            {"-->"}
+          </span>
+          <span onClick={() => this.lastPage()}>{">>"}</span>
         </div>
         {this.props.users.map((el) => {
           return (

@@ -6,6 +6,7 @@ export const types = {
   SUTC: "SET_USERS_TOTAL_COUNT",
   NP: "NEXT_PAGE",
   PP: "PREVIOUS_PAGE",
+  SIF: "SET_IS_FETCHING",
 };
 
 let initialState = {
@@ -13,6 +14,7 @@ let initialState = {
   pageSize: 10,
   totalUsersCount: 0,
   currentPage: 1,
+  isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -49,6 +51,10 @@ const usersReducer = (state = initialState, action) => {
       return { ...state, totalUsersCount: action.totalUsersCount };
     }
 
+    case types.SIF: {
+      return { ...state, isFetching: action.isFetching };
+    }
+
     default:
       return state;
   }
@@ -64,6 +70,11 @@ export const setCurrentPageActionCreator = (currentPage) => ({
 export const setUsersTotalCountActionCreator = (totalUsersCount) => ({
   type: types.SUTC,
   totalUsersCount,
+});
+
+export const setIsFetchingActionCreator = (isFetching) => ({
+  type: types.SIF,
+  isFetching,
 });
 
 export default usersReducer;

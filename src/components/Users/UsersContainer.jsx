@@ -23,28 +23,28 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followActionCreator(userId));
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowActionCreator(userId));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersActionCreator(users));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageActionCreator(pageNumber));
-    },
-    setTotalCount: (totalUsersCount) => {
-      dispatch(setUsersTotalCountActionCreator(totalUsersCount));
-    },
-    setIsFetching: (isFetching) => {
-      dispatch(setIsFetchingActionCreator(isFetching));
-    },
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followActionCreator(userId));
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unfollowActionCreator(userId));
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersActionCreator(users));
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageActionCreator(pageNumber));
+//     },
+//     setTotalCount: (totalUsersCount) => {
+//       dispatch(setUsersTotalCountActionCreator(totalUsersCount));
+//     },
+//     setIsFetching: (isFetching) => {
+//       dispatch(setIsFetchingActionCreator(isFetching));
+//     },
+//   };
+// };
 
 class UsersContainer extends React.Component {
   pageChanging = (pageNumber) => {
@@ -135,4 +135,11 @@ class UsersContainer extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps /*mapDispatchToProps*/, {
+  follow: followActionCreator,
+  unfollow: unfollowActionCreator,
+  setUsers: setUsersActionCreator,
+  setCurrentPage: setCurrentPageActionCreator,
+  setTotalCount: setUsersTotalCountActionCreator,
+  setIsFetching: setIsFetchingActionCreator,
+})(UsersContainer);

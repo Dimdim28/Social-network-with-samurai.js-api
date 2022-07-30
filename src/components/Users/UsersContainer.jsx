@@ -2,12 +2,12 @@ import { connect } from "react-redux";
 import axios from "axios";
 import React from "react";
 import {
-  followActionCreator,
-  setCurrentPageActionCreator,
-  setIsFetchingActionCreator,
-  setUsersActionCreator,
-  setUsersTotalCountActionCreator,
-  unfollowActionCreator,
+  follow,
+  setCurrentPage,
+  setIsFetching,
+  setUsers,
+  setUsersTotalCount,
+  unfollow,
 } from "../../redux/users-reducer";
 
 import { Users } from "./Users";
@@ -26,22 +26,22 @@ const mapStateToProps = (state) => {
 // const mapDispatchToProps = (dispatch) => {
 //   return {
 //     follow: (userId) => {
-//       dispatch(followActionCreator(userId));
+//       dispatch(follow(userId));
 //     },
 //     unfollow: (userId) => {
-//       dispatch(unfollowActionCreator(userId));
+//       dispatch(unfollow(userId));
 //     },
 //     setUsers: (users) => {
-//       dispatch(setUsersActionCreator(users));
+//       dispatch(setUsers(users));
 //     },
 //     setCurrentPage: (pageNumber) => {
-//       dispatch(setCurrentPageActionCreator(pageNumber));
+//       dispatch(setCurrentPage(pageNumber));
 //     },
 //     setTotalCount: (totalUsersCount) => {
-//       dispatch(setUsersTotalCountActionCreator(totalUsersCount));
+//       dispatch(setUsersTotalCount(totalUsersCount));
 //     },
 //     setIsFetching: (isFetching) => {
-//       dispatch(setIsFetchingActionCreator(isFetching));
+//       dispatch(setIsFetching(isFetching));
 //     },
 //   };
 // };
@@ -136,10 +136,10 @@ class UsersContainer extends React.Component {
 }
 
 export default connect(mapStateToProps /*mapDispatchToProps*/, {
-  follow: followActionCreator,
-  unfollow: unfollowActionCreator,
-  setUsers: setUsersActionCreator,
-  setCurrentPage: setCurrentPageActionCreator,
-  setTotalCount: setUsersTotalCountActionCreator,
-  setIsFetching: setIsFetchingActionCreator,
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setUsersTotalCount,
+  setIsFetching,
 })(UsersContainer);

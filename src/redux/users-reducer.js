@@ -60,19 +60,19 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
-export const followActionCreator = (userId) => ({ type: types.F, userId });
-export const unfollowActionCreator = (userId) => ({ type: types.UF, userId });
-export const setUsersActionCreator = (users) => ({ type: types.SU, users });
-export const setCurrentPageActionCreator = (currentPage) => ({
+export const follow = (userId) => ({ type: types.F, userId });
+export const unfollow = (userId) => ({ type: types.UF, userId });
+export const setUsers = (users) => ({ type: types.SU, users });
+export const setCurrentPage = (currentPage) => ({
   type: types.SCP,
   currentPage,
 });
-export const setUsersTotalCountActionCreator = (totalUsersCount) => ({
+export const setUsersTotalCount = (totalUsersCount) => ({
   type: types.SUTC,
   totalUsersCount,
 });
 
-export const setIsFetchingActionCreator = (isFetching) => ({
+export const setIsFetching = (isFetching) => ({
   type: types.SIF,
   isFetching,
 });

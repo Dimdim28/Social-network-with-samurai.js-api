@@ -4,7 +4,7 @@ import "./App.css";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Header from "./components/Header/Header";
 import NavBar from "./components/NavBar/NavBar";
-import ProFile from "./components/ProFile/ProFile";
+import ProFileContainer from "./components/ProFile/ProFileContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 
 const App = () => {
@@ -14,7 +14,7 @@ const App = () => {
       <NavBar />
       <div className="app-wrapper-content">
         <Routes>
-          <Route path="/profile" element={<ProFile />} />
+          <Route path="/profile/*" element={<ProFileContainer />} />
           <Route path="/dialogs" element={<DialogsContainer />} />
           <Route path="/users" element={<UsersContainer />} />
         </Routes>

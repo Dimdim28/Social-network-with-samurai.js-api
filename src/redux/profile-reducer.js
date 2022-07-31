@@ -1,6 +1,7 @@
 const types = {
   AP: "ADD-POST",
   UNPT: "UPDATE-NEW-POST-TEXT",
+  SUP: "SER_USER_PROFILE",
 };
 
 let initialState = {
@@ -10,6 +11,7 @@ let initialState = {
     { message: " =)", likes: 0, id: 2 },
   ],
   newPostText: "",
+  profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -27,12 +29,17 @@ const profileReducer = (state = initialState, action) => {
       return { ...state, newPostText: action.newText };
     }
 
+    case types.SUP: {
+      return { ...state, profile: action.profile };
+    }
+
     default:
       return state;
   }
 };
 
 export const addPostActionCreator = () => ({ type: types.AP });
+export const setUserProfile = (profile) => ({ type: types.SUP, profile });
 export const updateNewPostActionCreator = (text) => ({
   type: types.UNPT,
   newText: text,

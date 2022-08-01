@@ -1,16 +1,31 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import { setUserProfile } from "../../redux/profile-reducer";
 import ProFile from "./ProFile";
 
 class ProFileContainer extends Component {
   componentDidMount() {
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/profile/${this.props.userId}`
+      )
       .then((res) => {
         this.props.setUserProfile(res.data);
       });
+  }
+
+  componentDidUpdate(prevProps) {
+    let userId = this.props.userId;
+    if (prevProps.userId !== userId) {
+      let userId = 2;
+      axios
+        .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+        .then((res) => {
+          this.props.setUserProfile(res.data);
+        });
+    }
   }
 
   render() {
@@ -22,4 +37,17 @@ const mapStateToProps = (state) => ({
   profile: state.profileReducer.profile,
 });
 
-export default connect(mapStateToProps, { setUserProfile })(ProFileContainer);
+const WithRouterComponent = (props) => {
+  const params = useParams();
+  console.log(" params = ", params);
+  return (
+    <ProFileContainer
+      {...props} // Пропсы из mapStateToProps, {setUserProfile}
+      userId={params.userId ? params.userId : "2"} // Если такого userId нету, то отобразить 2
+    />
+  );
+};
+
+export default connect(mapStateToProps, { setUserProfile })(
+  WithRouterComponent
+);

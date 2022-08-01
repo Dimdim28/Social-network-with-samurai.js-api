@@ -19,44 +19,48 @@ export const Users = (props) => {
         <span onClick={() => props.nextPage(props.currentPage)}>{"-->"}</span>
         <span onClick={() => props.lastPage()}>{">>"}</span>
       </div>
-      {props.users.map((el) => {
-        return (
-          <div className={s.user} key={el.id}>
-            <div className={s.main}>
-              <NavLink to={"/profile/" + el.id}>
-                <img
-                  className={s.image}
-                  alt="avatar"
-                  src={el.photos.small ? el.photos.small : user}
-                />
-              </NavLink>
-              <button
-                className={`${s.button} ${el.followed ? s.unfollow : s.follow}`}
-                onClick={
-                  el.followed
-                    ? () => props.unfollow(el.id)
-                    : () => props.follow(el.id)
-                }
-              >
-                {el.followed ? "Unfollow" : "Follow"}
-              </button>
-            </div>
-
-            <div className={s.info}>
-              <div className={s.row}>
-                <p className={s.name}>{el.name}</p>
-                <p className={s.location}>
-                  {`el.location.city +  + el.location.country`}
-                </p>
+      <div className={s.users}>
+        {props.users.map((el) => {
+          return (
+            <div className={s.user} key={el.id}>
+              <div className={s.main}>
+                <NavLink to={"/profile/" + el.id}>
+                  <img
+                    className={s.image}
+                    alt="avatar"
+                    src={el.photos.small ? el.photos.small : user}
+                  />
+                </NavLink>
+                <button
+                  className={`${s.button} ${
+                    el.followed ? s.unfollow : s.follow
+                  }`}
+                  onClick={
+                    el.followed
+                      ? () => props.unfollow(el.id)
+                      : () => props.follow(el.id)
+                  }
+                >
+                  {el.followed ? "Unfollow" : "Follow"}
+                </button>
               </div>
 
-              <div>
-                <p className={s.status}>{el.status}</p>
+              <div className={s.info}>
+                <div className={s.row}>
+                  <p className={s.name}>{el.name}</p>
+                  <p className={s.location}>
+                    {`el.location.city +  + el.location.country`}
+                  </p>
+                </div>
+
+                <div>
+                  <p className={s.status}>{el.status}</p>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 };

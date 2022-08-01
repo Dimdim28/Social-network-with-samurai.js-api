@@ -17,9 +17,8 @@ class ProFileContainer extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    let userId = this.props.userId;
+    const userId = this.props.userId;
     if (prevProps.userId !== userId) {
-      let userId = 2;
       axios
         .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
         .then((res) => {
@@ -39,7 +38,6 @@ const mapStateToProps = (state) => ({
 
 const WithRouterComponent = (props) => {
   const params = useParams();
-  console.log(" params = ", params);
   return (
     <ProFileContainer
       {...props} // Пропсы из mapStateToProps, {setUserProfile}

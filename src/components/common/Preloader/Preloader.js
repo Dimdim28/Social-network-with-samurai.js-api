@@ -1,11 +1,11 @@
 import React from "react";
+import s from "./Preloader.module.css";
 
 const Preloader = () => {
   return (
-    <img
-      src="https://naenisee.ru/static/img/public/loading.gif"
-      alt="loading"
-    />
+    <div className={s.wrapper}>
+      <div className={s.loader}></div>
+    </div>
   );
 };
 

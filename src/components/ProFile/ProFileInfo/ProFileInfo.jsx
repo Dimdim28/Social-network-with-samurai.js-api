@@ -9,13 +9,6 @@ export const ProFileInfo = (props) => {
 
   return (
     <>
-      <div>
-        <img
-          className={s.banner}
-          src="https://cdn.wallpapersafari.com/55/73/ghY4rc.jpg"
-          alt="back"
-        />
-      </div>
       <div className={s.item}>
         <img src={props.profile.photos.large} alt="ava" />
         <p>{props.profile.fullName}</p>

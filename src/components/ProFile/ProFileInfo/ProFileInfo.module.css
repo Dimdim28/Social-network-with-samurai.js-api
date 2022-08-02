@@ -1,12 +1,11 @@
-img {
-  width: 100%;
-}
-
-.banner {
-  height: 100px;
-  object-fit: cover;
-}
-
 .item {
   text-align: start;
+  color: white;
+}
+
+.item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: fill;
 }

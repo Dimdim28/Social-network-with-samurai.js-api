@@ -26,15 +26,17 @@ export const Dialogs = (props) => {
           />
         ))}
       </div>
-      <div className={s.messages}>
-        {state.messages.map((el) => (
-          <Message
-            key={el.id}
-            message={el.message}
-            avatar={el.avatar}
-            person={el.person}
-          />
-        ))}
+      <div className={s.messagesArea}>
+        <div className={s.messages}>
+          {state.messages.map((el) => (
+            <Message
+              key={el.id}
+              message={el.message}
+              avatar={el.avatar}
+              person={el.person}
+            />
+          ))}
+        </div>
 
         <div className={s.addMessage}>
           <textarea

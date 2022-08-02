@@ -15,7 +15,7 @@ export const MyPosts = (props) => {
   };
 
   return (
-    <div>
+    <div className={s.postsArea}>
       <div className={s.addPost}>
         <textarea
           className={s.inputDescr}

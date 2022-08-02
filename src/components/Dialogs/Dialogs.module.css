@@ -1,8 +1,9 @@
 .dialogs {
-  display: grid;
-  grid-template-columns: 2fr 10fr;
+  display: flex;
+  flex-direction: row;
   color: white;
   height: 100%;
+  width: 100%;
 }
 
 .dialogItems {
@@ -32,16 +33,24 @@
 .active {
   color: gold;
 }
-.messages {
+.messagesArea {
   padding: 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
+.messages {
+  width: 100%;
+  overflow: auto;
+}
 .addMessage {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  margin: 20px 0;
 }
 
 .inputMessage {

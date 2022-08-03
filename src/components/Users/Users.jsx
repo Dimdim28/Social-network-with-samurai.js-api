@@ -61,9 +61,6 @@ export const Users = (props) => {
               <div className={s.info}>
                 <div className={s.row}>
                   <p className={s.name}>{el.name}</p>
-                  <p className={s.location}>
-                    {`el.location.city +  + el.location.country`}
-                  </p>
                 </div>
 
                 <div>

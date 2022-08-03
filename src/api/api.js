@@ -21,3 +21,12 @@ export const profileAPI = {
     return instance.get(`profile/${id}`);
   },
 };
+
+export const folowingAPI = {
+  follow(id) {
+    return instance.post(`follow/${id}`);
+  },
+  unfollow(id) {
+    return instance.delete(`follow/${id}`);
+  },
+};

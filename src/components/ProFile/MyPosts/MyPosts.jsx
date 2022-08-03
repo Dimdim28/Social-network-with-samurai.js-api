@@ -16,6 +16,12 @@ export const MyPosts = (props) => {
 
   return (
     <div className={s.postsArea}>
+      <div className={s.posts}>
+        {props.postsData.map((el) => (
+          <Post message={el.message} key={el.id} likes={el.likes} />
+        ))}
+      </div>
+
       <div className={s.addPost}>
         <textarea
           className={s.inputDescr}
@@ -26,12 +32,6 @@ export const MyPosts = (props) => {
         <button className={s.addButton} onClick={onAddPost}>
           Add post
         </button>
-      </div>
-
-      <div className={s.posts}>
-        {props.postsData.map((el) => (
-          <Post message={el.message} key={el.id} likes={el.likes} />
-        ))}
       </div>
     </div>
   );

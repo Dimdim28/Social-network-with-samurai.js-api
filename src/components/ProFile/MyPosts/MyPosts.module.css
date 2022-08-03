@@ -1,40 +1,51 @@
 .postsArea {
-  height: 50%;
+  height: 60%;
+  margin-bottom: 10%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .addPost {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   width: 100%;
   margin: 20px 0;
 }
 
 .inputDescr {
-  width: 90%;
+  width: 100%;
   outline: none;
-  border: 2px solid greenyellow;
+  border: none;
   border-radius: 10px;
   resize: vertical;
   min-height: 100px;
+  background-color: rgb(3, 59, 17);
+  color: white;
 }
 
 .addButton {
   outline: none;
   width: 200px;
   height: 40px;
-  border: 2px solid greenyellow;
+  border: none;
   border-radius: 10px;
   padding: 5px 15px;
   margin-top: 20px;
+  background-color: rgb(3, 59, 17);
+  color: white;
 }
 
 .addButton:active {
-  border: 2px solid rgb(194, 243, 120);
-  background-color: #fff;
+  background-color: rgb(4, 73, 22);
 }
 
 .posts {
   overflow: auto;
   height: 50%;
+  background-color: rgb(3, 59, 17);
+  padding: 20px;
+  border: 10px solid rgb(3, 59, 17);
 }

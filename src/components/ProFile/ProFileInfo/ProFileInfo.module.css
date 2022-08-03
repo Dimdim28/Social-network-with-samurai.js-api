@@ -1,11 +1,87 @@
 .item {
+  padding: 10px;
   text-align: start;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.item img {
+.main {
+  background-color: rgb(3, 59, 17);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100px;
+  max-height: 150px;
+  width: 100%;
+  padding: 10px;
+}
+
+.avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
   object-fit: fill;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  text-align: right;
+  max-width: 70%;
+}
+
+.fullName {
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.aboutMe {
+  overflow-y: auto;
+}
+
+.description {
+  margin-top: 10px;
+  background-color: rgb(3, 59, 17);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  min-height: 100px;
+}
+
+.contacts {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.contact {
+  margin: 10px;
+  border-left: 2px solid rgb(2, 122, 32);
+  padding-left: 5px;
+}
+
+.job {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 50%;
+}
+
+.jobTitle {
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 2px solid rgb(2, 122, 32);
+}
+
+.jobDescription {
+  font-size: 18px;
+  font-weight: 500;
+  overflow-y: auto;
+  max-height: 100px;
 }

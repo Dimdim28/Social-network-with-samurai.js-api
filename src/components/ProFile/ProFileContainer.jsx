@@ -1,29 +1,23 @@
-import axios from "axios";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { profileAPI } from "../../api/api";
 import { setUserProfile } from "../../redux/profile-reducer";
 import ProFile from "./ProFile";
 
 class ProFileContainer extends Component {
   componentDidMount() {
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/profile/${this.props.userId}`
-      )
-      .then((res) => {
-        this.props.setUserProfile(res.data);
-      });
+    profileAPI.getProfile(this.props.userId).then((res) => {
+      this.props.setUserProfile(res.data);
+    });
   }
 
   componentDidUpdate(prevProps) {
     const userId = this.props.userId;
     if (prevProps.userId !== userId) {
-      axios
-        .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-        .then((res) => {
-          this.props.setUserProfile(res.data);
-        });
+      profileAPI.getProfile(userId).then((res) => {
+        this.props.setUserProfile(res.data);
+      });
     }
   }
 

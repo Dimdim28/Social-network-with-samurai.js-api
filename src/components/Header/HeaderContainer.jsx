@@ -13,7 +13,7 @@ class HeaderContainer extends Component {
       .then((res) => {
         if (res.data.resultCode === 0) {
           const { id, email, login } = res.data.data;
-          this.props.setAuthUserData(id, login, email);
+          this.props.setAuthUserData(id, email, login);
         }
       });
   }
@@ -26,6 +26,8 @@ class HeaderContainer extends Component {
 const mapStateToProps = (state) => ({
   isAuth: state.authReducer.isAuth,
   login: state.authReducer.login,
+  id: state.authReducer.id,
+  email: state.authReducer.email,
 });
 
 export default connect(mapStateToProps, { setAuthUserData })(HeaderContainer);

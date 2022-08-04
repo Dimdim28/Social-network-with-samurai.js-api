@@ -10,6 +10,7 @@ export const Users = (props) => {
   //   for (let i = 1; i <= pagesCount; i++) {     //used for displaying all pagenumbers (you may filter them if you want)
   //     pages.push(i); // in returned jsx use pages.map (index) => {...}
   //   }
+  console.log(props);
 
   return (
     <>
@@ -32,30 +33,44 @@ export const Users = (props) => {
                     src={el.photos.small ? el.photos.small : user}
                   />
                 </NavLink>
-                <button
-                  className={`${s.button} ${
-                    el.followed ? s.unfollow : s.follow
-                  }`}
-                  onClick={
-                    el.followed
-                      ? () => {
-                          folowingAPI.unfollow(el.id).then((res) => {
-                            if (res.data.resultCode === 0) {
-                              props.unfollow(el.id);
-                            }
-                          });
+
+                {el.followed ? (
+                  <button
+                    className={`${s.button} ${s.unfollow}`}
+                    disabled={props.followingProgress.some(
+                      (id) => id === el.id
+                    )}
+                    onClick={() => {
+                      props.setFollowingProgress(true, el.id);
+                      folowingAPI.unfollow(el.id).then((res) => {
+                        if (res.data.resultCode === 0) {
+                          props.unfollow(el.id);
                         }
-                      : () => {
-                          folowingAPI.follow(el.id).then((res) => {
-                            if (res.data.resultCode === 0) {
-                              props.follow(el.id);
-                            }
-                          });
+                        props.setFollowingProgress(false, el.id);
+                      });
+                    }}
+                  >
+                    Unfollow
+                  </button>
+                ) : (
+                  <button
+                    className={`${s.button} ${s.follow}`}
+                    disabled={props.followingProgress.some(
+                      (id) => id === el.id
+                    )}
+                    onClick={() => {
+                      props.setFollowingProgress(true, el.id);
+                      folowingAPI.follow(el.id).then((res) => {
+                        if (res.data.resultCode === 0) {
+                          props.follow(el.id);
                         }
-                  }
-                >
-                  {el.followed ? "Unfollow" : "Follow"}
-                </button>
+                        props.setFollowingProgress(false, el.id);
+                      });
+                    }}
+                  >
+                    Follow
+                  </button>
+                )}
               </div>
 
               <div className={s.info}>

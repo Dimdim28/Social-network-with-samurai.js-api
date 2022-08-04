@@ -7,6 +7,7 @@ export const types = {
   NP: "NEXT_PAGE",
   PP: "PREVIOUS_PAGE",
   SIF: "SET_IS_FETCHING",
+  SFP: "SET_FOLLOWING_PROGRESS",
 };
 
 let initialState = {
@@ -15,6 +16,7 @@ let initialState = {
   totalUsersCount: 0,
   currentPage: 1,
   isFetching: false,
+  followingProgress: [],
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -55,6 +57,15 @@ const usersReducer = (state = initialState, action) => {
       return { ...state, isFetching: action.isFetching };
     }
 
+    case types.SFP: {
+      return {
+        ...state,
+        followingProgress: action.followingProgress
+          ? [...state.followingProgress, action.userId]
+          : [state.followingProgress.filter((id) => id !== action.userId)],
+      };
+    }
+
     default:
       return state;
   }
@@ -75,6 +86,12 @@ export const setUsersTotalCount = (totalUsersCount) => ({
 export const setIsFetching = (isFetching) => ({
   type: types.SIF,
   isFetching,
+});
+
+export const setFollowingProgress = (followingProgress, userId) => ({
+  type: types.SFP,
+  followingProgress,
+  userId,
 });
 
 export default usersReducer;

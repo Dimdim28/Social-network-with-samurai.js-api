@@ -14,20 +14,17 @@ export const usersAPI = {
       .get(`users?page=${pageNumber}&count=${pageSize}`)
       .then((res) => res.data);
   },
-};
-
-export const profileAPI = {
-  getProfile(id) {
-    return instance.get(`profile/${id}`);
-  },
-};
-
-export const folowingAPI = {
   follow(id) {
     return instance.post(`follow/${id}`);
   },
   unfollow(id) {
     return instance.delete(`follow/${id}`);
+  },
+};
+
+export const profileAPI = {
+  getProfile(id) {
+    return instance.get(`profile/${id}`);
   },
 };
 

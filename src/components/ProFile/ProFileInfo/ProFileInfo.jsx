@@ -1,6 +1,7 @@
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import s from "./ProFileInfo.module.css";
+import user from "../../../assets/images/avatar.png";
 
 export const ProFileInfo = (props) => {
   if (!props.profile) {
@@ -10,7 +11,11 @@ export const ProFileInfo = (props) => {
   return (
     <div className={s.item}>
       <div className={s.main}>
-        <img className={s.avatar} src={props.profile.photos.large} alt="ava" />
+        <img
+          className={s.avatar}
+          src={props.profile.photos.large ? props.profile.photos.large : user}
+          alt="ava"
+        />
         <div className={s.profileText}>
           <p className={s.fullName}>{props.profile.fullName}</p>
           <p className={s.aboutME}> {props.profile.aboutMe}</p>

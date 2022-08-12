@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 import NavBar from "./components/NavBar/NavBar";
 import ProFileContainer from "./components/ProFile/ProFileContainer";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -20,6 +21,7 @@ const App = () => {
             <Route path="/profile" element={<ProFileContainer />} />
             <Route path="/dialogs" element={<DialogsContainer />} />
             <Route path="/users" element={<UsersContainer />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </div>

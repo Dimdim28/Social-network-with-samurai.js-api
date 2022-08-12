@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import { compose } from "redux";
+import WithAuthRedirect from "../../hoc/AuthRedirect";
 import { getProfile } from "../../redux/profile-reducer";
 import ProFile from "./ProFile";
 
@@ -25,14 +27,22 @@ const mapStateToProps = (state) => ({
   profile: state.profileReducer.profile,
 });
 
-const WithRouterComponent = (props) => {
-  const params = useParams();
-  return (
-    <ProFileContainer
-      {...props} // Пропсы из mapStateToProps, { getProfile}
-      userId={params.userId ? params.userId : "2"} // Если такого userId нету, то отобразить 2
-    />
-  );
-};
+function WithRouterComponent(Component) {
+  function ComponentWithRouterProp(props) {
+    const params = useParams();
+    return (
+      <Component
+        {...props} // Пропсы из mapStateToProps, { getProfile}
+        userId={params.userId ? params.userId : "2"} // Если такого userId нету, то отобразить 2
+      />
+    );
+  }
 
-export default connect(mapStateToProps, { getProfile })(WithRouterComponent);
+  return ComponentWithRouterProp;
+}
+
+export default compose(
+  connect(mapStateToProps, { getProfile }),
+  WithRouterComponent,
+  WithAuthRedirect
+)(ProFileContainer);

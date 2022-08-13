@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { compose } from "redux";
 import {
   addPostActionCreator,
   updateNewPostActionCreator,
@@ -52,9 +53,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const SuperPostsContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+const SuperPostsContainer = compose(
+  connect(mapStateToProps, mapDispatchToProps)
 )(MyPosts);
 
 export default SuperPostsContainer;

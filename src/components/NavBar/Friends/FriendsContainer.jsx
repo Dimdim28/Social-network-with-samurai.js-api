@@ -1,6 +1,7 @@
 //import React from "react";
 //import StoreContext from "../../../StoreContext";
 import { connect } from "react-redux";
+import { compose } from "redux";
 import { Friends } from "./Friends";
 
 //store.state
@@ -23,7 +24,6 @@ const mapDispatchToProps = () => {
   return {};
 };
 
-export const FriendsContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+export const FriendsContainer = compose(
+  connect(mapStateToProps, mapDispatchToProps)
 )(Friends);

@@ -2,6 +2,7 @@ import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import s from "./ProFileInfo.module.css";
 import user from "../../../assets/images/avatar.png";
+import ProfileStatus from "./ProfileStatus";
 
 export const ProFileInfo = (props) => {
   if (!props.profile) {
@@ -43,6 +44,7 @@ export const ProFileInfo = (props) => {
           </p>
         </div>
       </div>
+      <ProfileStatus status="Hello" />
     </div>
   );
 };

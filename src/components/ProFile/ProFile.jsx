@@ -6,7 +6,11 @@ import s from "./ProFile.module.css";
 export default function ProFile(props) {
   return (
     <div className={s.profile}>
-      <ProFileInfo profile={props.profile} />
+      <ProFileInfo
+        profile={props.profile}
+        status={props.status}
+        updateStatus={props.updateStatus}
+      />
       <MyPostsContainer />
     </div>
   );

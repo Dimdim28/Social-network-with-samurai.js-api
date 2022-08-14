@@ -44,7 +44,7 @@ export const ProFileInfo = (props) => {
           </p>
         </div>
       </div>
-      <ProfileStatus status="Hello" />
+      <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
     </div>
   );
 };

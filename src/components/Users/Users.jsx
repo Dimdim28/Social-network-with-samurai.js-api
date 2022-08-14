@@ -9,7 +9,6 @@ export const Users = (props) => {
   //   for (let i = 1; i <= pagesCount; i++) {     //used for displaying all pagenumbers (you may filter them if you want)
   //     pages.push(i); // in returned jsx use pages.map (index) => {...}
   //   }
-  console.log(props);
 
   return (
     <>

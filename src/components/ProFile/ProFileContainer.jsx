@@ -39,6 +39,7 @@ class ProFileContainer extends Component {
 const mapStateToProps = (state) => ({
   profile: state.profileReducer.profile,
   status: state.profileReducer.status,
+  userId: state.authReducer.id,
 });
 
 function WithRouterComponent(Component) {
@@ -47,7 +48,7 @@ function WithRouterComponent(Component) {
     return (
       <Component
         {...props} // Пропсы из mapStateToProps, { getProfile}
-        userId={params.userId ? params.userId : "2"} // Если такого userId нету, то отобразить 2
+        userId={params.userId ? params.userId : props.userId} // Если такого userId нету, то отобразить свой профиль
       />
     );
   }

@@ -55,7 +55,6 @@ export const authMe = () => (dispatch) => {
 export const getLoginUserData = (data) => (dispatch) => {
   authAPI.login(data).then((response) => {
     if (response.data.resultCode === 0) {
-      debugger;
       dispatch(authMe());
     } else {
       dispatch(setError(response.data.messages[0]));

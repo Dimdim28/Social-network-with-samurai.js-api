@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../Login.module.css";
 import { Field, Form } from "react-final-form";
-//import { emailValidation, required, composeValidators } from '../../utilities/validators'
+import { formHelpers } from "../../../helpers/FormHelpers";
 
 const LoginForm = (props) => {
   const onSubmit = (data) => {
@@ -15,14 +15,17 @@ const LoginForm = (props) => {
         render={({ handleSubmit, submitting, invalid }) => (
           <form className={styles.form} onSubmit={handleSubmit}>
             <Field
-              // validate={ composeValidators(required, emailValidation) }
+              validate={formHelpers.composeValidators(
+                formHelpers.required,
+                formHelpers.emailValidation
+              )}
               autoComplete={"username"}
               name={"email"}
-              placeholder={"Enter login"}
+              placeholder={"Enter email"}
               component="input"
             />
             <Field
-              // validate={required}
+              validate={formHelpers.required}
               autoComplete={"current-password"}
               name={"password"}
               placeholder={"Enter password"}

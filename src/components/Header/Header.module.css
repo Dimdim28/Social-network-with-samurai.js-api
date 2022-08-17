@@ -2,13 +2,12 @@
   background-color: rgb(0, 100, 0);
   width: 100%;
   margin-bottom: 10px;
-  height: 80px;
   color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-right: 10px;
+  padding: 10px;
 }
 
 .header img {
@@ -21,4 +20,25 @@
 .loginBlock a {
   text-decoration: none;
   color: white;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.login {
+  font-weight: 600;
+  font-size: 28px;
+  border-bottom: 2px solid white;
+}
+
+.exit {
+  font-weight: 700;
+  font-size: 25px;
+  color: rgb(247, 48, 48);
+  margin-top: 5px;
+  cursor: pointer;
 }

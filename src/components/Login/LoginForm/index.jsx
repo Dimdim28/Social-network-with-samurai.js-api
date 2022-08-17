@@ -9,12 +9,13 @@ const LoginForm = (props) => {
   };
   return (
     <div className={styles.loginWrapper}>
-      <h2>Login</h2>
+      <h2 className={styles.title}>Login</h2>
       <Form
         onSubmit={onSubmit}
         render={({ handleSubmit, submitting, invalid }) => (
           <form className={styles.form} onSubmit={handleSubmit}>
             <Field
+              className={styles.input}
               validate={formHelpers.composeValidators(
                 formHelpers.required,
                 formHelpers.emailValidation
@@ -25,6 +26,7 @@ const LoginForm = (props) => {
               component="input"
             />
             <Field
+              className={styles.input}
               validate={formHelpers.required}
               autoComplete={"current-password"}
               name={"password"}
@@ -34,7 +36,12 @@ const LoginForm = (props) => {
             />
             <div className="">
               <label htmlFor="rememberMe">Remember me</label>
-              <Field name="rememberMe" component={"input"} type={"checkbox"} />
+              <Field
+                className={styles.rememberMe}
+                name="rememberMe"
+                component={"input"}
+                type={"checkbox"}
+              />
             </div>
             {props.error && (
               <span className={styles.generalError}> {props.error} </span>

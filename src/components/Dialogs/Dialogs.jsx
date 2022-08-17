@@ -2,17 +2,10 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import DialogItem from "./DialogItem";
 import Message from "./Message";
+import AddTextForm from "../common/Forms/AddTextForm";
 
 export const Dialogs = (props) => {
   let state = props.dialogsPage;
-  const addMessage = () => {
-    props.sendMessage();
-  };
-
-  const onChangeMessage = (e) => {
-    let text = e.target.value;
-    props.updateNewMessageBody(text);
-  };
 
   return (
     <div className={s.dialogs}>
@@ -38,7 +31,7 @@ export const Dialogs = (props) => {
           ))}
         </div>
 
-        <div className={s.addMessage}>
+        {/* <div className={s.addMessage}>
           <textarea
             className={s.inputMessage}
             onChange={onChangeMessage}
@@ -47,7 +40,9 @@ export const Dialogs = (props) => {
           <button className={s.addButton} onClick={addMessage}>
             Send message
           </button>
-        </div>
+        </div> */}
+
+        <AddTextForm submit={props.sendMessage} buttonLabel="Add message" />
       </div>
     </div>
   );

@@ -1,19 +1,10 @@
 import React from "react";
+import AddTextForm from "../../common/Forms/AddTextForm";
 
 import s from "./MyPosts.module.css";
 import { Post } from "./Post/Post";
 
 export const MyPosts = (props) => {
-  const newPostElement = React.createRef();
-  const onAddPost = () => {
-    props.addPost();
-  };
-
-  const onChangePost = () => {
-    let text = newPostElement.current.value;
-    props.updateNewPostText(text);
-  };
-
   return (
     <div className={s.postsArea}>
       <div className={s.posts}>
@@ -22,7 +13,7 @@ export const MyPosts = (props) => {
         ))}
       </div>
 
-      <div className={s.addPost}>
+      {/* <div className={s.addPost}>
         <textarea
           className={s.inputDescr}
           ref={newPostElement}
@@ -32,7 +23,8 @@ export const MyPosts = (props) => {
         <button className={s.addButton} onClick={onAddPost}>
           Add post
         </button>
-      </div>
+      </div> */}
+      <AddTextForm submit={props.addPost} buttonLabel="Add Post" />
     </div>
   );
 };

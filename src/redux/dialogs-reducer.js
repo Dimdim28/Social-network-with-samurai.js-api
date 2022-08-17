@@ -1,6 +1,5 @@
 const types = {
   AM: "ADD-MESSAGE",
-  UNMT: "UPDATE-NEW-MESSAGE-TEXT",
 };
 
 let initialState = {
@@ -62,14 +61,13 @@ let initialState = {
       avatar: "https://7themes.su/_ph/57/517143448.jpg",
     },
   ],
-  newMessageText: "",
 };
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.AM: {
       const newMessage = {
         id: state.messages.length,
-        message: state.newMessageText,
+        message: action.newText,
         person: "second",
         avatar:
           "https://i.pinimg.com/originals/f6/40/ef/f640ef2855c53f086ecbec6dfc86449d.png",
@@ -78,14 +76,6 @@ const dialogsReducer = (state = initialState, action) => {
       return {
         ...state,
         messages: [...state.messages, newMessage],
-        newMessageText: "",
-      };
-    }
-
-    case types.UNMT: {
-      return {
-        ...state,
-        newMessageText: action.newText,
       };
     }
 
@@ -94,10 +84,9 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const addMessageActionCreator = () => ({ type: types.AM });
-export const updateNewMessageActionCreator = (text) => ({
-  type: types.UNMT,
-  newText: text,
+export const addMessageActionCreator = (data) => ({
+  type: types.AM,
+  newText: data.newText,
 });
 
 export default dialogsReducer;

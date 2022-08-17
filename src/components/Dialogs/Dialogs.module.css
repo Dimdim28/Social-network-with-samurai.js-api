@@ -45,34 +45,5 @@
 .messages {
   width: 100%;
   overflow: auto;
-}
-.addMessage {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.inputMessage {
-  width: 90%;
-  outline: none;
-  border: 2px solid greenyellow;
-  border-radius: 10px;
-  resize: vertical;
-  min-height: 100px;
-}
-
-.addButton {
-  outline: none;
-  width: 200px;
-  height: 40px;
-  border: 2px solid greenyellow;
-  border-radius: 10px;
-  padding: 5px 15px;
-  margin-top: 20px;
-}
-
-.addButton:active {
-  border: 2px solid rgb(194, 243, 120);
-  background-color: #fff;
+  height: 60%;
 }

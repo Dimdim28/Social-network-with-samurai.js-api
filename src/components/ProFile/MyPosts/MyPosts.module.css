@@ -7,41 +7,6 @@
   justify-content: center;
 }
 
-.addPost {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 100%;
-  margin: 20px 0;
-}
-
-.inputDescr {
-  width: 100%;
-  outline: none;
-  border: none;
-  border-radius: 10px;
-  resize: vertical;
-  min-height: 100px;
-  background-color: rgb(3, 59, 17);
-  color: white;
-}
-
-.addButton {
-  outline: none;
-  width: 200px;
-  height: 40px;
-  border: none;
-  border-radius: 10px;
-  padding: 5px 15px;
-  margin-top: 20px;
-  background-color: rgb(3, 59, 17);
-  color: white;
-}
-
-.addButton:active {
-  background-color: rgb(4, 73, 22);
-}
-
 .posts {
   overflow: auto;
   height: 50%;

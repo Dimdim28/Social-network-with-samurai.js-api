@@ -7,6 +7,11 @@ import AddTextForm from "../common/Forms/AddTextForm";
 export const Dialogs = (props) => {
   let state = props.dialogsPage;
 
+  const submit = (data, form) => {
+    props.sendMessage(data);
+    form.restart();
+  };
+
   return (
     <div className={s.dialogs}>
       <div className={s.dialogItems}>
@@ -31,18 +36,7 @@ export const Dialogs = (props) => {
           ))}
         </div>
 
-        {/* <div className={s.addMessage}>
-          <textarea
-            className={s.inputMessage}
-            onChange={onChangeMessage}
-            value={state.newMessageText}
-          />
-          <button className={s.addButton} onClick={addMessage}>
-            Send message
-          </button>
-        </div> */}
-
-        <AddTextForm submit={props.sendMessage} buttonLabel="Add message" />
+        <AddTextForm submit={submit} buttonLabel="Add message" />
       </div>
     </div>
   );

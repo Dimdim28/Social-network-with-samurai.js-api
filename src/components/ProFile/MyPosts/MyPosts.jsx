@@ -5,6 +5,11 @@ import s from "./MyPosts.module.css";
 import { Post } from "./Post/Post";
 
 export const MyPosts = (props) => {
+  const submit = (data, form) => {
+    props.addPost(data);
+    form.restart();
+  };
+
   return (
     <div className={s.postsArea}>
       <div className={s.posts}>
@@ -13,18 +18,7 @@ export const MyPosts = (props) => {
         ))}
       </div>
 
-      {/* <div className={s.addPost}>
-        <textarea
-          className={s.inputDescr}
-          ref={newPostElement}
-          value={props.newPostText}
-          onChange={onChangePost}
-        />
-        <button className={s.addButton} onClick={onAddPost}>
-          Add post
-        </button>
-      </div> */}
-      <AddTextForm submit={props.addPost} buttonLabel="Add Post" />
+      <AddTextForm submit={submit} buttonLabel="Add Post" />
     </div>
   );
 };

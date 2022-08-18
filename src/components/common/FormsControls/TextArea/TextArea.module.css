@@ -6,11 +6,11 @@
   align-items: flex-end;
 }
 
-.textArea {
+formControl .textArea {
   width: 100%;
 }
 
-span {
+formControl span {
   margin-top: 10px;
   font-weight: 500;
 }

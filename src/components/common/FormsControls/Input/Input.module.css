@@ -1,0 +1,23 @@
+.formControl {
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+input {
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+span {
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.formControl.error input {
+  border: 2px solid red;
+}

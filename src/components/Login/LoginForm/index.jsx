@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../Login.module.css";
 import { Field, Form } from "react-final-form";
 import { formHelpers } from "../../../helpers/FormHelpers";
+import Input from "../../common/FormsControls/Input/Input";
 
 const LoginForm = (props) => {
   const onSubmit = (data) => {
@@ -23,7 +24,7 @@ const LoginForm = (props) => {
               autoComplete={"username"}
               name={"email"}
               placeholder={"Enter email"}
-              component="input"
+              component={Input}
             />
             <Field
               className={styles.input}
@@ -32,12 +33,12 @@ const LoginForm = (props) => {
               name={"password"}
               placeholder={"Enter password"}
               type={"password"}
-              component="input"
+              component={Input}
             />
-            <div className="">
+            <div className={styles.rememberMe}>
               <label htmlFor="rememberMe">Remember me</label>
               <Field
-                className={styles.rememberMe}
+                className={styles.checkBox}
                 name="rememberMe"
                 component={"input"}
                 type={"checkbox"}

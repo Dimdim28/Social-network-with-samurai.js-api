@@ -1,5 +1,6 @@
 import { Field, Form } from "react-final-form";
 import { formHelpers } from "../../../helpers/FormHelpers";
+import TextArea from "../FormsControls/TextArea/TextArea";
 import styles from "./AddTextForm.module.css";
 
 const AddTextForm = (props) => {
@@ -12,7 +13,7 @@ const AddTextForm = (props) => {
             <Field
               className={styles.inputDescr}
               name={"newText"}
-              component="textarea"
+              component={TextArea}
               validate={formHelpers.required}
             />
             <button

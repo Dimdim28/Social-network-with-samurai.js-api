@@ -28,13 +28,17 @@
   flex-direction: column;
 }
 
-.input {
-  outline: none;
-  margin-bottom: 20px;
-}
-
 .rememberMe {
   margin-bottom: 20px;
-  margin-left: 20px;
-  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.checkBox {
+  max-width: 20px;
+  margin: 0;
+}
+.generalError {
+  color: red;
 }

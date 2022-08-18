@@ -10,7 +10,7 @@ export const formHelpers = {
   maxLength: (maxValue) => (text) =>
     text.length > maxValue ? `Max length is ${maxValue}` : undefined,
 
-  required: (value) => (value ? undefined : "Required"),
+  required: (value) => (value ? undefined : "Field is required!!"),
 
   emailValidation(email) {
     const regEmail =

@@ -59,7 +59,7 @@ export const setEmptyUserData = () => ({
 const setError = (error) => ({ type: types.SE, error });
 
 export const authMe = () => (dispatch) => {
-  authAPI.authMe().then((res) => {
+  return authAPI.authMe().then((res) => {
     if (res.data.resultCode === 0) {
       const { id, email, login } = res.data.data;
       dispatch(setAuthUserData(id, email, login));

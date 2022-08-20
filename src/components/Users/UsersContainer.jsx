@@ -14,6 +14,7 @@ import { compose } from "redux";
 import { usersSelectors } from "../../redux/users-selectors";
 
 const mapStateToProps = (state) => {
+  console.log("mapstatetoprops");
   return {
     users: usersSelectors.getUsers(state),
     pageSize: usersSelectors.getPageSize(state),
@@ -99,9 +100,10 @@ class UsersContainer extends React.Component {
   };
 
   render() {
+    if (this.props.isFetching) return <Preloader />;
+    console.log("rendered");
     return (
       <>
-        {this.props.isFetching ? <Preloader /> : null}
         <Users
           totalUsersCount={this.props.totalUsersCount}
           pageSize={this.props.pageSize}

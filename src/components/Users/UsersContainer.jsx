@@ -11,15 +11,16 @@ import { Users } from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import WithAuthRedirect from "../../hoc/AuthRedirect";
 import { compose } from "redux";
+import { usersSelectors } from "../../redux/users-selectors";
 
 const mapStateToProps = (state) => {
   return {
-    users: state.usersReducer.users,
-    pageSize: state.usersReducer.pageSize,
-    totalUsersCount: state.usersReducer.totalUsersCount,
-    currentPage: state.usersReducer.currentPage,
-    isFetching: state.usersReducer.isFetching,
-    followingProgress: state.usersReducer.followingProgress,
+    users: usersSelectors.getUsers(state),
+    pageSize: usersSelectors.getPageSize(state),
+    totalUsersCount: usersSelectors.getTotalUsersCount(state),
+    currentPage: usersSelectors.getCurrentPage(state),
+    isFetching: usersSelectors.getIsFetching(state),
+    followingProgress: usersSelectors.getFollowingProgress(state),
   };
 };
 

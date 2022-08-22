@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { compose } from "redux";
@@ -10,31 +10,23 @@ import {
 } from "../../redux/profile-reducer";
 import ProFile from "./ProFile";
 
-class ProFileContainer extends Component {
-  componentDidMount() {
-    this.props.getProfile(this.props.userId);
-    this.props.getStatus(this.props.userId);
-  }
+const ProFileContainer = (props) => {
+  const getProfile = props.getProfile;
+  const getStatus = props.getStatus;
+  useEffect(() => {
+    getProfile(props.userId);
+    getStatus(props.userId);
+  }, [props.userId, getProfile, getStatus]);
 
-  componentDidUpdate(prevProps) {
-    const userId = this.props.userId;
-    if (prevProps.userId !== userId) {
-      this.props.getProfile(userId);
-      this.props.getStatus(userId);
-    }
-  }
-
-  render() {
-    return (
-      <ProFile
-        {...this.props}
-        profile={this.props.profile}
-        status={this.props.status}
-        updateStatus={this.props.updateStatus}
-      />
-    );
-  }
-}
+  return (
+    <ProFile
+      {...props}
+      profile={props.profile}
+      status={props.status}
+      updateStatus={props.updateStatus}
+    />
+  );
+};
 
 const mapStateToProps = (state) => ({
   profile: state.profileReducer.profile,

@@ -2,7 +2,6 @@ import { authAPI } from "../api/api";
 
 export const types = {
   SUD: "SET_USER_DATA",
-  SIF: "SET_IS_FETCHING",
   SE: "SET_ERROR",
   DUD: "DELETE_USER_DATA",
 };
@@ -56,7 +55,7 @@ export const setEmptyUserData = () => ({
   type: types.DUD,
 });
 
-const setError = (error) => ({ type: types.SE, error });
+export const setError = (error) => ({ type: types.SE, error });
 
 export const authMe = () => (dispatch) => {
   return authAPI.authMe().then((res) => {

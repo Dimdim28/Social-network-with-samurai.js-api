@@ -1,6 +1,4 @@
-const types = {
-  AM: "ADD-MESSAGE",
-};
+import dialogsReducer, { addMessageActionCreator } from "./dialogs-reducer";
 
 const initialState = {
   messages: [
@@ -62,31 +60,21 @@ const initialState = {
     },
   ],
 };
-const dialogsReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case types.AM: {
-      const newMessage = {
-        id: state.messages.length,
-        message: action.newText,
-        person: "second",
-        avatar:
-          "https://i.pinimg.com/originals/f6/40/ef/f640ef2855c53f086ecbec6dfc86449d.png",
-      };
 
-      return {
-        ...state,
-        messages: [...state.messages, newMessage],
-      };
-    }
-
-    default:
-      return state;
-  }
-};
-
-export const addMessageActionCreator = (data) => ({
-  type: types.AM,
-  newText: data.newText,
+it("posts count should be incremented", () => {
+  const action = addMessageActionCreator({ newText: "new post" });
+  const newState = dialogsReducer(initialState, action);
+  expect(newState.messages.length).toBe(6);
 });
 
-export default dialogsReducer;
+it("Added posh should have correct id", () => {
+  const action = addMessageActionCreator({ newText: "new post" });
+  const newState = dialogsReducer(initialState, action);
+  expect(newState.messages[5].id).toBe(5);
+});
+
+it("Added posh should have correct message", () => {
+  const action = addMessageActionCreator({ newText: "new message" });
+  const newState = dialogsReducer(initialState, action);
+  expect(newState.messages[5].message).toBe("new message");
+});

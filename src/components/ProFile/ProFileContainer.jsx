@@ -11,12 +11,11 @@ import {
 import ProFile from "./ProFile";
 
 const ProFileContainer = (props) => {
-  const getProfile = props.getProfile;
-  const getStatus = props.getStatus;
+  const { getProfile, getStatus, userId } = props;
   useEffect(() => {
-    getProfile(props.userId);
-    getStatus(props.userId);
-  }, [props.userId, getProfile, getStatus]);
+    getProfile(userId);
+    getStatus(userId);
+  }, [userId, getProfile, getStatus]);
 
   return (
     <ProFile

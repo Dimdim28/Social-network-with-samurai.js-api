@@ -6,7 +6,7 @@ export const types = {
   DUD: "DELETE_USER_DATA",
 };
 
-let initialState = {
+const initialState = {
   id: null,
   email: null,
   login: null,
@@ -57,32 +57,24 @@ export const setEmptyUserData = () => ({
 
 export const setError = (error) => ({ type: types.SE, error });
 
-export const authMe = () => (dispatch) => {
-  return authAPI.authMe().then((res) => {
-    if (res.data.resultCode === 0) {
-      const { id, email, login } = res.data.data;
-      dispatch(setAuthUserData(id, email, login));
-    }
-  });
+export const authMe = () => async (dispatch) => {
+  const res = await authAPI.authMe();
+  if (res.data.resultCode === 0) {
+    const { id, email, login } = res.data.data;
+    dispatch(setAuthUserData(id, email, login));
+  }
 };
 
-export const exit = () => (dispatch) => {
-  authAPI.exit().then((res) => {
-    if (res.data.resultCode === 0) {
-      dispatch(setEmptyUserData());
-    }
-  });
+export const exit = () => async (dispatch) => {
+  const res = await authAPI.exit();
+  if (res.data.resultCode === 0) dispatch(setEmptyUserData());
 };
 
-export const getLoginUserData = (data) => (dispatch) => {
+export const getLoginUserData = (data) => async (dispatch) => {
   const { email, password, rememberMe } = data;
-  authAPI.login(email, password, rememberMe).then((response) => {
-    if (response.data.resultCode === 0) {
-      dispatch(authMe());
-    } else {
-      dispatch(setError(response.data.messages[0]));
-    }
-  });
+  const response = await authAPI.login(email, password, rememberMe);
+  if (response.data.resultCode === 0) dispatch(authMe());
+  else dispatch(setError(response.data.messages[0]));
 };
 
 export default authReducer;

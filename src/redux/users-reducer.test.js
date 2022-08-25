@@ -3,6 +3,9 @@ import usersReducer, {
   setUsers,
   setUsersTotalCount,
   setCurrentPage,
+  followSuccess,
+  unfollowSuccess,
+  setFollowingProgress,
 } from "./users-reducer";
 
 const initialState = {
@@ -172,4 +175,36 @@ it("currentPage should be able to  be updated correctly", () => {
   const secondAction = setCurrentPage(30);
   const secondState = usersReducer(firstState, secondAction);
   expect(secondState.currentPage).toBe(30);
+});
+
+it("after following user  his following status must be updated", () => {
+  const firstAction = setUsers(usersData);
+  const stateWithUsers = usersReducer(initialState, firstAction);
+  const secondAction = followSuccess(3);
+  const stateAfterFollowingUser = usersReducer(stateWithUsers, secondAction);
+  expect(stateAfterFollowingUser.users[8].followed).toBe(true);
+});
+
+it("after unfollowing user  his following status must be updated", () => {
+  const firstAction = setUsers(usersData);
+  const stateWithUsers = usersReducer(initialState, firstAction);
+  const secondAction = unfollowSuccess(2);
+  const stateAfterFollowingUser = usersReducer(stateWithUsers, secondAction);
+  expect(stateAfterFollowingUser.users[9].followed).toBe(false);
+});
+
+it("after following FollowingProgress must be updated correctly", () => {
+  const action = setFollowingProgress(true, 2);
+  const resultState = usersReducer(initialState, action);
+  expect(resultState.followingProgress[0]).toBe(2);
+});
+
+const followingState = {
+  followingProgress: [2],
+};
+
+it("after unfollowing FollowingProgress must be updated correctly", () => {
+  const action = setFollowingProgress(false, 2);
+  const state = usersReducer(followingState, action);
+  expect(state.followingProgress.length).toBe(0);
 });

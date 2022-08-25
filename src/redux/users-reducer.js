@@ -58,12 +58,14 @@ const usersReducer = (state = initialState, action) => {
     }
 
     case types.SFP: {
-      return {
+      const result = {
         ...state,
         followingProgress: action.followingProgress
           ? [...state.followingProgress, action.userId]
-          : [state.followingProgress.filter((id) => id !== action.userId)],
+          : state.followingProgress.filter((id) => id !== action.userId),
       };
+      console.log(result.followingProgress);
+      return result;
     }
 
     default:

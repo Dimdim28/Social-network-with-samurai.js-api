@@ -1,4 +1,5 @@
 import { usersAPI } from "../api/api";
+import Followinghelpers from "../helpers/FollowingHelpers";
 
 export const types = {
   F: "FOLLOW",
@@ -22,23 +23,11 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.F: {
-      return {
-        ...state,
-        users: state.users.map((user) => {
-          if (user.id === action.userId) return { ...user, followed: true };
-          return user;
-        }),
-      };
+      return Followinghelpers.changeFollowngStatus(state, action.userId, true);
     }
 
     case types.UF: {
-      return {
-        ...state,
-        users: state.users.map((user) => {
-          if (user.id === action.userId) return { ...user, followed: false };
-          return user;
-        }),
-      };
+      return Followinghelpers.changeFollowngStatus(state, action.userId, false);
     }
 
     case types.SU: {
@@ -58,14 +47,7 @@ const usersReducer = (state = initialState, action) => {
     }
 
     case types.SFP: {
-      const result = {
-        ...state,
-        followingProgress: action.followingProgress
-          ? [...state.followingProgress, action.userId]
-          : state.followingProgress.filter((id) => id !== action.userId),
-      };
-      console.log(result.followingProgress);
-      return result;
+      return Followinghelpers.changeFollowingStatus(state, action);
     }
 
     default:

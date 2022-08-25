@@ -86,18 +86,19 @@ export const getUsers = (currentPage, pageSize) => async (dispatch) => {
   dispatch(setUsersTotalCount(data.totalCount));
 };
 
-export const follow = (userId) => async (dispatch) => {
+const following = async function (userId, dispatch, apiAction, successAction) {
   dispatch(setFollowingProgress(true, userId));
-  const res = await usersAPI.follow(userId);
-  if (res.data.resultCode === 0) dispatch(followSuccess(userId));
+  const res = await usersAPI[apiAction](userId);
+  if (res.data.resultCode === 0) dispatch(successAction(userId));
   dispatch(setFollowingProgress(false, userId));
 };
 
+export const follow = (userId) => (dispatch) => {
+  following(userId, dispatch, "follow", followSuccess);
+};
+
 export const unfollow = (userId) => async (dispatch) => {
-  dispatch(setFollowingProgress(true, userId));
-  const res = await usersAPI.unfollow(userId);
-  if (res.data.resultCode === 0) dispatch(unfollowSuccess(userId));
-  dispatch(setFollowingProgress(false, userId));
+  following(userId, dispatch, "unfollow", unfollowSuccess);
 };
 
 export default usersReducer;

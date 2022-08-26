@@ -24,6 +24,7 @@ const ProfileStatus = (props) => {
     <>
       {editMode ? (
         <input
+          data-testid="input-elem"
           onChange={onStatusChange}
           autoFocus={true}
           onBlur={disActivateEditMode}

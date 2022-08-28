@@ -4,6 +4,7 @@ import { getLoginUserData } from "../../redux/auth-reducer";
 import s from "./Login.module.css";
 import { Navigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
+import { authSelectors } from "../../redux/auth-selectors";
 
 const Login = (props) => {
   if (props.isAuth) {
@@ -18,8 +19,8 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isAuth: state.authReducer.isAuth,
-    error: state.authReducer.error,
+    isAuth: authSelectors.getisAuth(state),
+    error: authSelectors.getError(state),
   };
 };
 

@@ -8,4 +8,7 @@ export const profileSelectors = {
   getId(state) {
     return state.authReducer.id;
   },
+  getPosts(state) {
+    return state.profileReducer.posts;
+  },
 };

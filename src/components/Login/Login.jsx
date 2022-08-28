@@ -19,7 +19,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isAuth: authSelectors.getisAuth(state),
+    isAuth: authSelectors.getIsAuth(state),
     error: authSelectors.getError(state),
   };
 };

@@ -7,6 +7,7 @@ import { initializeApp } from "./redux/app-reducer";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import NavBar from "./components/NavBar/NavBar";
+import { appSelectors } from "./redux/app-selectors";
 
 const UsersContainer = React.lazy(() =>
   import("./components/Users/UsersContainer")
@@ -50,7 +51,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  initialized: state.appReducer.initialized,
+  initialized: appSelectors.getInitialized(state),
 });
 
 export default connect(mapStateToProps, { initializeApp })(App);

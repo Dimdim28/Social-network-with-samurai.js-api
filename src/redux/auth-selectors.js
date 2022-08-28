@@ -1,5 +1,5 @@
 export const authSelectors = {
-  getisAuth(state) {
+  getIsAuth(state) {
     return state.authReducer.isAuth;
   },
   getLogin(state) {

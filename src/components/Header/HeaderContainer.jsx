@@ -11,7 +11,7 @@ class HeaderContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  isAuth: authSelectors.getisAuth(state),
+  isAuth: authSelectors.getIsAuth(state),
   login: authSelectors.getLogin(state),
   id: authSelectors.getId(state),
   email: authSelectors.getEmail(state),

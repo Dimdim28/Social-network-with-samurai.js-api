@@ -1,5 +1,5 @@
-import { usersAPI } from "../api/api";
-import Followinghelpers from "../helpers/FollowingHelpers";
+import { usersAPI } from "../../api/api";
+import Followinghelpers from "../../helpers/FollowingHelpers";
 
 export const types = {
   F: "FOLLOW",

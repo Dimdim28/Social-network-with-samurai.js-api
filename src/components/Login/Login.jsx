@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import React from "react";
-import { getLoginUserData } from "../../redux/auth-reducer";
+import { getLoginUserData } from "../../redux/auth/auth-reducer";
 import s from "./Login.module.css";
 import { Navigate } from "react-router-dom";
 import LoginForm from "./LoginForm";
-import { authSelectors } from "../../redux/auth-selectors";
+import { authSelectors } from "../../redux/auth/auth-selectors";
 
 const Login = (props) => {
   if (props.isAuth) {

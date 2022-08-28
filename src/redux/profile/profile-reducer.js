@@ -1,4 +1,4 @@
-import { profileAPI } from "../api/api";
+import { profileAPI } from "../../api/api";
 
 const types = {
   AP: "ADD-POST",
@@ -23,7 +23,7 @@ const profileReducer = (state = initialState, action) => {
       const newPost = {
         id: state.posts.length,
         message: action.newText,
-        likesCount: 0,
+        likes: 0,
       };
 
       return { ...state, posts: [...state.posts, newPost], newPostText: "" };

@@ -5,13 +5,13 @@ import {
   setCurrentPage,
   unfollow,
   getUsers,
-} from "../../redux/users-reducer";
+} from "../../redux/users/users-reducer";
 
 import { Users } from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import WithAuthRedirect from "../../hoc/AuthRedirect";
 import { compose } from "redux";
-import { usersSelectors } from "../../redux/users-selectors";
+import { usersSelectors } from "../../redux/users/users-selectors";
 
 const mapStateToProps = (state) => {
   return {

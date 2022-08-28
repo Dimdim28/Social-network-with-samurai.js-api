@@ -4,12 +4,12 @@ import {
   compose,
   legacy_createStore as createStore,
 } from "redux";
-import dialogsReducer from "./dialogs-reducer";
-import profileReducer from "./profile-reducer";
-import sidebarReducer from "./sidebar-reducer";
-import usersReducer from "./users-reducer";
-import authReducer from "./auth-reducer";
-import appReducer from "./app-reducer";
+import dialogsReducer from "./dialogs/dialogs-reducer";
+import profileReducer from "./profile/profile-reducer";
+import sidebarReducer from "./sidebar/sidebar-reducer";
+import usersReducer from "./users/users-reducer";
+import authReducer from "./auth/auth-reducer";
+import appReducer from "./app/app-reducer";
 import thunkMiddleware from "redux-thunk";
 let reducers = combineReducers({
   profileReducer,

@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Preloader from "./components/common/Preloader/Preloader";
-import { initializeApp } from "./redux/app-reducer";
+import { initializeApp } from "./redux/app/app-reducer";
 
 import HeaderContainer from "./components/Header/HeaderContainer";
 import NavBar from "./components/NavBar/NavBar";
-import { appSelectors } from "./redux/app-selectors";
+import { appSelectors } from "./redux/app/app-selectors";
 
 const UsersContainer = React.lazy(() =>
   import("./components/Users/UsersContainer")

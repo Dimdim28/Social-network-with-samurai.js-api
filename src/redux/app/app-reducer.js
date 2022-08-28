@@ -1,4 +1,4 @@
-import { authMe } from "./auth-reducer";
+import { authMe } from "../auth/auth-reducer";
 
 export const types = {
   SI: "SET_INITIALIZED",

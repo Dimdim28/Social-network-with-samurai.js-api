@@ -7,9 +7,9 @@ import {
   getProfile,
   getStatus,
   updateStatus,
-} from "../../redux/profile-reducer";
+} from "../../redux/profile/profile-reducer";
 import ProFile from "./ProFile";
-import { profileSelectors } from "../../redux/profile-selectors";
+import { profileSelectors } from "../../redux/profile/profile-selectors";
 
 const ProFileContainer = (props) => {
   const { getProfile, getStatus, userId } = props;

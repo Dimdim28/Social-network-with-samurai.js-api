@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Header from "./Header";
-import { exit } from "../../redux/auth-reducer";
-import { authSelectors } from "../../redux/auth-selectors";
+import { exit } from "../../redux/auth/auth-reducer";
+import { authSelectors } from "../../redux/auth/auth-selectors";
 
 class HeaderContainer extends Component {
   render() {

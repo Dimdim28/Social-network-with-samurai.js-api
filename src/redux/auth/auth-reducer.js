@@ -1,4 +1,4 @@
-import { authAPI } from "../api/api";
+import { authAPI } from "../../api/api";
 
 export const types = {
   SUD: "SET_USER_DATA",

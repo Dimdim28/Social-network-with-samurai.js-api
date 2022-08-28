@@ -9,6 +9,7 @@ import {
   updateStatus,
 } from "../../redux/profile-reducer";
 import ProFile from "./ProFile";
+import { profileSelectors } from "../../redux/profile-selectors";
 
 const ProFileContainer = (props) => {
   const { getProfile, getStatus, userId } = props;
@@ -28,9 +29,9 @@ const ProFileContainer = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  profile: state.profileReducer.profile,
-  status: state.profileReducer.status,
-  userId: state.authReducer.id,
+  profile: profileSelectors.getProfile(state),
+  status: profileSelectors.getStatus(state),
+  userId: profileSelectors.getId(state),
 });
 
 function WithRouterComponent(Component) {

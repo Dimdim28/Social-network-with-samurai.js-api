@@ -5,8 +5,6 @@ import Message from "./Message";
 import AddTextForm from "../common/Forms/AddTextForm";
 
 export const Dialogs = (props) => {
-  let state = props.dialogsPage;
-
   const submit = (data, form) => {
     props.sendMessage(data);
     form.restart();
@@ -15,7 +13,7 @@ export const Dialogs = (props) => {
   return (
     <div className={s.dialogs}>
       <div className={s.dialogItems}>
-        {state.dialogs.map((el) => (
+        {props.dialogs.map((el) => (
           <DialogItem
             key={el.id}
             name={el.name}
@@ -26,7 +24,7 @@ export const Dialogs = (props) => {
       </div>
       <div className={s.messagesArea}>
         <div className={s.messages}>
-          {state.messages.map((el) => (
+          {props.messages.map((el) => (
             <Message
               key={el.id}
               message={el.message}

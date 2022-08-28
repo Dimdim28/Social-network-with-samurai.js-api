@@ -3,6 +3,7 @@ import { compose } from "redux";
 import WithAuthRedirect from "../../hoc/AuthRedirect";
 
 import { addMessageActionCreator } from "../../redux/dialogs-reducer";
+import { dialogsSelectors } from "../../redux/dialogs-selectors";
 //import StoreContext from "../../StoreContext";
 import { Dialogs } from "./Dialogs";
 
@@ -33,7 +34,8 @@ import { Dialogs } from "./Dialogs";
 */
 const mapStateToProps = (state) => {
   return {
-    dialogsPage: state.dialogsReducer,
+    dialogs: dialogsSelectors.getDialogs(state),
+    messages: dialogsSelectors.getMessages(state),
   };
 };
 

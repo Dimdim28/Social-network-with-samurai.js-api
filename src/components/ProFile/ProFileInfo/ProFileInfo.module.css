@@ -14,9 +14,17 @@
   align-items: center;
   justify-content: space-between;
   min-height: 100px;
-  max-height: 150px;
+  max-height: 200px;
   width: 100%;
   padding: 10px;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .avatar {
@@ -24,6 +32,43 @@
   height: 80px;
   border-radius: 50%;
   object-fit: fill;
+}
+.addImage {
+  margin-top: 20px;
+  font-size: 15px;
+  color: transparent;
+  max-width: 120px;
+}
+
+.addImage::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.addImage::before {
+  content: "Change photo";
+  color: black;
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-user-select: none;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+
+.addImage:hover::before {
+  border-color: black;
+}
+.addImage:active {
+  outline: 0;
+}
+.addImage:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 
 .profileText {

@@ -9,14 +9,28 @@ export const ProFileInfo = (props) => {
     return <Preloader />;
   }
 
+  const onMainPhotoSelected = (e) => {
+    if (e.target.files[0]) props.savePhoto(e.target.files[0]);
+  };
+
   return (
     <div className={s.item}>
       <div className={s.main}>
-        <img
-          className={s.avatar}
-          src={props.profile.photos.large ? props.profile.photos.large : user}
-          alt="ava"
-        />
+        <div className={s.logo}>
+          <img
+            className={s.avatar}
+            src={props.profile.photos.large ? props.profile.photos.large : user}
+            alt="ava"
+          />
+          {props.isOwner && (
+            <input
+              className={s.addImage}
+              type="file"
+              onChange={onMainPhotoSelected}
+            />
+          )}
+        </div>
+
         <div className={s.profileText}>
           <p className={s.fullName}>{props.profile.fullName}</p>
           <p className={s.aboutME}> {props.profile.aboutMe}</p>

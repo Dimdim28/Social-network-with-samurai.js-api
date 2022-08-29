@@ -7,9 +7,11 @@ import {
   getProfile,
   getStatus,
   updateStatus,
+  savePhoto,
 } from "../../redux/profile/profile-reducer";
 import ProFile from "./ProFile";
 import { profileSelectors } from "../../redux/profile/profile-selectors";
+import { authSelectors } from "../../redux/auth/auth-selectors";
 
 const ProFileContainer = (props) => {
   const { getProfile, getStatus, userId } = props;
@@ -24,6 +26,8 @@ const ProFileContainer = (props) => {
       profile={props.profile}
       status={props.status}
       updateStatus={props.updateStatus}
+      isOwner={props.ownerId === props.userId}
+      savePhoto={props.savePhoto}
     />
   );
 };
@@ -32,6 +36,7 @@ const mapStateToProps = (state) => ({
   profile: profileSelectors.getProfile(state),
   status: profileSelectors.getStatus(state),
   userId: profileSelectors.getId(state),
+  ownerId: authSelectors.getId(state),
 });
 
 function WithRouterComponent(Component) {
@@ -49,7 +54,7 @@ function WithRouterComponent(Component) {
 }
 
 export default compose(
-  connect(mapStateToProps, { getProfile, getStatus, updateStatus }),
+  connect(mapStateToProps, { getProfile, getStatus, updateStatus, savePhoto }),
   WithRouterComponent,
   WithAuthRedirect
 )(ProFileContainer);

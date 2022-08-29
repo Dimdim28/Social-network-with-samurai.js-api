@@ -16,18 +16,21 @@ export const ProFileInfo = (props) => {
   return (
     <div className={s.item}>
       <div className={s.main}>
-        <div className={s.logo}>
+        <div className={props.savePhotoError ? s.errorOccured : s.logo}>
           <img
             className={s.avatar}
             src={props.profile.photos.large ? props.profile.photos.large : user}
             alt="ava"
           />
           {props.isOwner && (
-            <input
-              className={s.addImage}
-              type="file"
-              onChange={onMainPhotoSelected}
-            />
+            <>
+              <input
+                className={s.addImage}
+                type="file"
+                onChange={onMainPhotoSelected}
+              />
+              {props.savePhotoError && <p>{props.savePhotoError}</p>}
+            </>
           )}
         </div>
 

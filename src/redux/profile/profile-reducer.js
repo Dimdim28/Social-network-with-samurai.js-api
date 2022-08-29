@@ -6,6 +6,7 @@ const types = {
   SUP: "SET-USER-PROFILE",
   SS: "SET-STATUS",
   SPS: "SAVE-PHOTO-SUCCESS",
+  SPE: "SAVE-PHOTO-ERROR",
 };
 
 let initialState = {
@@ -16,6 +17,7 @@ let initialState = {
   ],
   profile: null,
   status: "",
+  savePhotoError: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -50,6 +52,13 @@ const profileReducer = (state = initialState, action) => {
       return { ...state, profile: { ...state.profile, photos: action.photos } };
     }
 
+    case types.SPE: {
+      return {
+        ...state,
+        savePhotoError: action.savePhotoError,
+      };
+    }
+
     default:
       return state;
   }
@@ -66,6 +75,12 @@ export const addPostActionCreator = (data) => ({
 });
 
 export const savePhotoSuccess = (photos) => ({ type: types.SPS, photos });
+export const savePhotoError = (savePhotoError) => {
+  return {
+    type: types.SPE,
+    savePhotoError,
+  };
+};
 export const setUserProfile = (profile) => ({ type: types.SUP, profile });
 export const setStatus = (status) => ({ type: types.SS, status });
 
@@ -86,7 +101,11 @@ export const updateStatus = (status) => async (dispatch) => {
 
 export const savePhoto = (file) => async (dispatch) => {
   const res = await profileAPI.savePhoto(file);
-  if (!res.data.resultCode) dispatch(savePhotoSuccess(res.data.data.photos));
+  if (!res.data.resultCode) {
+    dispatch(savePhotoSuccess(res.data.data.photos));
+    dispatch(savePhotoError(null));
+  }
+  if (res.data.resultCode === 1) dispatch(savePhotoError(res.data.messages[0]));
 };
 
 export default profileReducer;

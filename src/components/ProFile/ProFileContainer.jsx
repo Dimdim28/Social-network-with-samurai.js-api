@@ -37,6 +37,7 @@ const mapStateToProps = (state) => ({
   status: profileSelectors.getStatus(state),
   userId: profileSelectors.getId(state),
   ownerId: authSelectors.getId(state),
+  savePhotoError: profileSelectors.getSavePhotoError(state),
 });
 
 function WithRouterComponent(Component) {

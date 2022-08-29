@@ -11,4 +11,7 @@ export const profileSelectors = {
   getPosts(state) {
     return state.profileReducer.posts;
   },
+  getSavePhotoError(state) {
+    return state.profileReducer.savePhotoError;
+  },
 };

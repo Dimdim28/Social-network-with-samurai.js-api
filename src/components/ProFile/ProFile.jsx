@@ -12,6 +12,7 @@ export default function ProFile(props) {
         updateStatus={props.updateStatus}
         isOwner={props.isOwner}
         savePhoto={props.savePhoto}
+        savePhotoError={props.savePhotoError}
       />
       <MyPostsContainer />
     </div>

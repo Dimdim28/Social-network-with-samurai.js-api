@@ -8,6 +8,7 @@ import {
   getStatus,
   updateStatus,
   savePhoto,
+  saveProfile,
 } from "../../redux/profile/profile-reducer";
 import ProFile from "./ProFile";
 import { profileSelectors } from "../../redux/profile/profile-selectors";
@@ -28,6 +29,8 @@ const ProFileContainer = (props) => {
       updateStatus={props.updateStatus}
       isOwner={props.ownerId === props.userId}
       savePhoto={props.savePhoto}
+      saveProfile={props.saveProfile}
+      userId={props.ownerId}
     />
   );
 };
@@ -55,7 +58,13 @@ function WithRouterComponent(Component) {
 }
 
 export default compose(
-  connect(mapStateToProps, { getProfile, getStatus, updateStatus, savePhoto }),
+  connect(mapStateToProps, {
+    getProfile,
+    getStatus,
+    updateStatus,
+    savePhoto,
+    saveProfile,
+  }),
   WithRouterComponent,
   WithAuthRedirect
 )(ProFileContainer);

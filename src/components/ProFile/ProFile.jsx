@@ -17,6 +17,8 @@ export default function ProFile(props) {
         savePhotoError={props.savePhotoError}
         editMode={editMode}
         setEditMode={setEditMode}
+        saveProfile={props.saveProfile}
+        userId={props.userId}
       />
       {!editMode && <MyPostsContainer />}
     </div>

@@ -7,6 +7,27 @@ import styles from "./ProFileDataForm.module.css";
 const ProFileDataForm = (props) => {
   const onSubmit = (data) => {
     console.log(data);
+    const lookingForAJob = Array.isArray(data.lookingForAJob) ? true : false;
+    const dataObj = {
+      AboutMe: data.AboutMe,
+      fullName: data.fullName,
+      lookingForAJob: lookingForAJob,
+      lookingForAJobDescription: data.lookingForAJobDescription,
+      userId: props.userId,
+      contacts: {
+        github: data.github,
+        vk: data.vk,
+        facebook: data.facebook,
+        instagram: data.instagram,
+        twitter: data.twitter,
+        website: data.website,
+        youtube: data.youtube,
+        mainLink: data.mainLink,
+      },
+    };
+    console.log("dataObj =", dataObj);
+    props.setEditMode(false);
+    props.saveProfile(dataObj);
   };
   return (
     <div className={styles.wrapper}>
@@ -18,12 +39,22 @@ const ProFileDataForm = (props) => {
             <form onSubmit={handleSubmit}>
               <Field
                 validate={formHelpers.composeValidators(formHelpers.required)}
-                autoComplete={"fullNme"}
+                autoComplete={"fullName"}
                 name={"fullName"}
                 placeholder={"Enter your name"}
                 component={Input}
-                value={props.fullName}
+                value={props.profile.fullName}
               />
+
+              <Field
+                validate={formHelpers.composeValidators(formHelpers.required)}
+                autoComplete={"AboutMe"}
+                name={"AboutMe"}
+                placeholder={"Tell about yourself"}
+                component={Input}
+                value={props.profile.AboutMe}
+              />
+
               <div className={styles.jobWrapper}>
                 <h2>Looking for a job</h2>
                 <div className={styles.job}>
@@ -32,6 +63,7 @@ const ProFileDataForm = (props) => {
                     name="lookingForAJob"
                     component={"input"}
                     type={"checkbox"}
+                    value={props.profile.lookingForAJob}
                   />
                 </div>
               </div>
@@ -42,73 +74,74 @@ const ProFileDataForm = (props) => {
                 name={"lookingForAJobDescription"}
                 placeholder={"Enter description to your job looking"}
                 component={Input}
+                value={props.profile.lookingForAJobDescription}
               />
               <h2>Contacts</h2>
               <div className={styles.contacts}>
                 <div className={styles.leftBar}>
                   <Field
-                    validate={formHelpers.required}
                     autoComplete={"github"}
                     name={"github"}
                     placeholder={" link to your github "}
                     component={Input}
+                    value={props.profile.contacts.github}
                   />
 
                   <Field
-                    validate={formHelpers.required}
                     autoComplete={"vk"}
                     name={"vk"}
                     placeholder={" link to your vk "}
                     component={Input}
+                    value={props.profile.contacts.vk}
                   />
 
                   <Field
-                    validate={formHelpers.required}
                     autoComplete={"facebook"}
                     name={"facebook"}
                     placeholder={" link to your facebook "}
                     component={Input}
+                    value={props.profile.contacts.facebook}
                   />
 
                   <Field
-                    validate={formHelpers.required}
                     autoComplete={"instagram"}
                     name={"instagram"}
                     placeholder={" link to your instagram "}
                     component={Input}
+                    value={props.profile.contacts.instagram}
                   />
                 </div>
                 <div className={styles.rightBar}>
                   <Field
-                    validate={formHelpers.required}
                     autoComplete={"twitter"}
                     name={"twitter"}
                     placeholder={" link to your twitter "}
                     component={Input}
+                    value={props.profile.contacts.twitter}
                   />
 
                   <Field
-                    validate={formHelpers.required}
                     autoComplete={"website"}
                     name={"website"}
                     placeholder={" link to your website "}
                     component={Input}
+                    value={props.profile.contacts.website}
                   />
 
                   <Field
-                    validate={formHelpers.required}
                     autoComplete={"youtube"}
                     name={"youtube"}
                     placeholder={" link to your youtube "}
                     component={Input}
+                    value={props.profile.contacts.youtube}
                   />
 
                   <Field
-                    validate={formHelpers.required}
                     autoComplete={"mainLink"}
                     name={"mainLink"}
                     placeholder={"   your mainLink "}
                     component={Input}
+                    value={props.profile.contacts.mainLink}
                   />
                 </div>
               </div>

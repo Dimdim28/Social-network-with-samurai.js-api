@@ -47,7 +47,12 @@ export const ProFileInfo = (props) => {
       )}
 
       {props.editMode ? (
-        <ProFileDataForm profile={props.profile} />
+        <ProFileDataForm
+          profile={props.profile}
+          setEditMode={props.setEditMode}
+          saveProfile={props.saveProfile}
+          userId={props.userId}
+        />
       ) : (
         <ProFileData
           toEditMode={() => {

@@ -14,4 +14,7 @@ export const authSelectors = {
   getError(state) {
     return state.authReducer.error;
   },
+  getCaptcha(state) {
+    return state.authReducer.captchaUrl;
+  },
 };

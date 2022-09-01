@@ -39,6 +39,11 @@
   max-width: 20px;
   margin: 0;
 }
+
+.captcha {
+  margin-bottom: 10px;
+}
+
 .generalError {
   color: red;
 }

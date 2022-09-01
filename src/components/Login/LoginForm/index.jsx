@@ -8,6 +8,9 @@ const LoginForm = (props) => {
   const onSubmit = (data) => {
     props.getLoginUserData(data);
   };
+
+  const captchaUrl = props.captchaUrl;
+
   return (
     <div className={styles.loginWrapper}>
       <h2 className={styles.title}>Login</h2>
@@ -44,9 +47,28 @@ const LoginForm = (props) => {
                 type={"checkbox"}
               />
             </div>
+
+            {captchaUrl && (
+              <>
+                <img
+                  src={captchaUrl}
+                  alt={captchaUrl}
+                  className={styles.captcha}
+                />
+                <Field
+                  className={styles.input}
+                  autoComplete={"captcha"}
+                  name={"captcha"}
+                  placeholder={"Enter captcha"}
+                  component={Input}
+                />{" "}
+              </>
+            )}
+
             {props.error && (
               <span className={styles.generalError}> {props.error} </span>
             )}
+
             <button disabled={submitting || invalid} type="submit">
               Login
             </button>

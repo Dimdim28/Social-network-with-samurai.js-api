@@ -12,7 +12,7 @@ const Login = (props) => {
   }
   return (
     <div className={s.loginPage}>
-      <LoginForm {...props} />
+      <LoginForm {...props} captchaUrl={props.captchaUrl} />
     </div>
   );
 };
@@ -21,6 +21,7 @@ const mapStateToProps = (state) => {
   return {
     isAuth: authSelectors.getIsAuth(state),
     error: authSelectors.getError(state),
+    captchaUrl: authSelectors.getCaptcha(state),
   };
 };
 

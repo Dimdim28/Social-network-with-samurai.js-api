@@ -18,6 +18,7 @@ export default function ProFile(props) {
         editMode={editMode}
         setEditMode={setEditMode}
         saveProfile={props.saveProfile}
+        saveProfileError={props.saveProfileError}
         userId={props.userId}
       />
       {!editMode && <MyPostsContainer />}

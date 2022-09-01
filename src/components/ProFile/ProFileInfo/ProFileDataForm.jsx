@@ -5,9 +5,7 @@ import Input from "../../common/FormsControls/Input/Input";
 import styles from "./ProFileDataForm.module.css";
 
 const ProFileDataForm = (props) => {
-  console.log("props =", props);
   const onSubmit = (data) => {
-    console.log(data);
     const lookingForAJob = Array.isArray(data.lookingForAJob) ? true : false;
     const dataObj = {
       AboutMe: data.AboutMe,
@@ -26,9 +24,7 @@ const ProFileDataForm = (props) => {
         mainLink: data.mainLink,
       },
     };
-    console.log("dataObj =", dataObj);
-    props.setEditMode(false);
-    props.saveProfile(dataObj);
+    props.saveProfile(dataObj).then(() => props.setEditMode(false));
   };
 
   const initialValues = {
@@ -170,7 +166,9 @@ const ProFileDataForm = (props) => {
                 </div>
               </div>
 
-              {props.error && <span> {props.error} </span>}
+              {props.saveProfileError && (
+                <span> {props.saveProfileError} </span>
+              )}
               <button
                 className={styles.button}
                 disabled={submitting || invalid}

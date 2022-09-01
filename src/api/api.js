@@ -42,8 +42,6 @@ export const profileAPI = {
     });
   },
   saveProfile(profile) {
-    console.log(profile);
-    debugger;
     return instance.put(`profile`, profile);
   },
 };

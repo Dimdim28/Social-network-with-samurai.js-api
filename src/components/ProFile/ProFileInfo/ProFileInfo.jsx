@@ -51,6 +51,7 @@ export const ProFileInfo = (props) => {
           profile={props.profile}
           setEditMode={props.setEditMode}
           saveProfile={props.saveProfile}
+          saveProfileError={props.saveProfileError}
           userId={props.userId}
         />
       ) : (

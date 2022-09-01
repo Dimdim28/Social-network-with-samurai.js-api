@@ -31,6 +31,7 @@ const ProFileContainer = (props) => {
       savePhoto={props.savePhoto}
       saveProfile={props.saveProfile}
       userId={props.ownerId}
+      saveProfileError={props.saveProfileError}
     />
   );
 };
@@ -41,6 +42,7 @@ const mapStateToProps = (state) => ({
   userId: profileSelectors.getId(state),
   ownerId: authSelectors.getId(state),
   savePhotoError: profileSelectors.getSavePhotoError(state),
+  saveProfileError: profileSelectors.getSaveProfileError(state),
 });
 
 function WithRouterComponent(Component) {

@@ -7,6 +7,7 @@ const types = {
   SS: "SET-STATUS",
   SPS: "SAVE-PHOTO-SUCCESS",
   SPE: "SAVE-PHOTO-ERROR",
+  SPRE: "SAVE-PROFILE-ERROR",
 };
 
 let initialState = {
@@ -18,6 +19,7 @@ let initialState = {
   profile: null,
   status: "",
   savePhotoError: null,
+  saveProfileError: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -59,6 +61,13 @@ const profileReducer = (state = initialState, action) => {
       };
     }
 
+    case types.SPRE: {
+      return {
+        ...state,
+        saveProfileError: action.saveProfileError,
+      };
+    }
+
     default:
       return state;
   }
@@ -75,12 +84,21 @@ export const addPostActionCreator = (data) => ({
 });
 
 export const savePhotoSuccess = (photos) => ({ type: types.SPS, photos });
+
 export const savePhotoError = (savePhotoError) => {
   return {
     type: types.SPE,
     savePhotoError,
   };
 };
+
+export const saveProfileError = (saveProfileError) => {
+  return {
+    type: types.SPRE,
+    saveProfileError,
+  };
+};
+
 export const setUserProfile = (profile) => ({ type: types.SUP, profile });
 export const setStatus = (status) => ({ type: types.SS, status });
 
@@ -112,6 +130,10 @@ export const saveProfile = (profile) => async (dispatch) => {
   const res = await profileAPI.saveProfile(profile);
   if (!res.data.resultCode) {
     dispatch(getProfile(profile.userId));
+  } else {
+    const message = res.data.messages[0];
+    dispatch(saveProfileError(message));
+    return Promise.reject(message);
   }
 };
 export default profileReducer;

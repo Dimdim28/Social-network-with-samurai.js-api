@@ -5,6 +5,7 @@ import Input from "../../common/FormsControls/Input/Input";
 import styles from "./ProFileDataForm.module.css";
 
 const ProFileDataForm = (props) => {
+  console.log("props =", props);
   const onSubmit = (data) => {
     console.log(data);
     const lookingForAJob = Array.isArray(data.lookingForAJob) ? true : false;
@@ -29,13 +30,30 @@ const ProFileDataForm = (props) => {
     props.setEditMode(false);
     props.saveProfile(dataObj);
   };
+
+  const initialValues = {
+    fullName: props.profile.fullName,
+    AboutMe: props.profile.aboutMe,
+    lookingForAJob: props.profile.lookingForAJob ? ["job"] : [],
+    lookingForAJobDescription: props.profile.lookingForAJobDescription,
+    github: props.profile.contacts.github,
+    vk: props.profile.contacts.vk,
+    facebook: props.profile.contacts.facebook,
+    instagram: props.profile.contacts.instagram,
+    twitter: props.profile.contacts.twitter,
+    website: props.profile.contacts.website,
+    youtube: props.profile.contacts.youtube,
+    mainLink: props.profile.contacts.mainLink,
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.editProfileForm}>
         <h1>Edit Profile info </h1>
         <Form
+          initialValues={initialValues}
           onSubmit={onSubmit}
-          render={({ handleSubmit, submitting, invalid }) => (
+          render={({ handleSubmit, submitting, invalid, values }) => (
             <form onSubmit={handleSubmit}>
               <Field
                 validate={formHelpers.composeValidators(formHelpers.required)}
@@ -43,7 +61,7 @@ const ProFileDataForm = (props) => {
                 name={"fullName"}
                 placeholder={"Enter your name"}
                 component={Input}
-                value={props.profile.fullName}
+                value={values.fullName}
               />
 
               <Field
@@ -52,7 +70,7 @@ const ProFileDataForm = (props) => {
                 name={"AboutMe"}
                 placeholder={"Tell about yourself"}
                 component={Input}
-                value={props.profile.AboutMe}
+                value={values.AboutMe}
               />
 
               <div className={styles.jobWrapper}>
@@ -63,7 +81,7 @@ const ProFileDataForm = (props) => {
                     name="lookingForAJob"
                     component={"input"}
                     type={"checkbox"}
-                    value={props.profile.lookingForAJob}
+                    value={"job"}
                   />
                 </div>
               </div>
@@ -74,7 +92,7 @@ const ProFileDataForm = (props) => {
                 name={"lookingForAJobDescription"}
                 placeholder={"Enter description to your job looking"}
                 component={Input}
-                value={props.profile.lookingForAJobDescription}
+                value={values.lookingForAJobDescription}
               />
               <h2>Contacts</h2>
               <div className={styles.contacts}>
@@ -84,7 +102,7 @@ const ProFileDataForm = (props) => {
                     name={"github"}
                     placeholder={" link to your github "}
                     component={Input}
-                    value={props.profile.contacts.github}
+                    value={values.github}
                   />
 
                   <Field
@@ -92,7 +110,7 @@ const ProFileDataForm = (props) => {
                     name={"vk"}
                     placeholder={" link to your vk "}
                     component={Input}
-                    value={props.profile.contacts.vk}
+                    value={values.vk}
                   />
 
                   <Field
@@ -100,7 +118,7 @@ const ProFileDataForm = (props) => {
                     name={"facebook"}
                     placeholder={" link to your facebook "}
                     component={Input}
-                    value={props.profile.contacts.facebook}
+                    value={values.facebook}
                   />
 
                   <Field
@@ -108,7 +126,7 @@ const ProFileDataForm = (props) => {
                     name={"instagram"}
                     placeholder={" link to your instagram "}
                     component={Input}
-                    value={props.profile.contacts.instagram}
+                    value={values.instagram}
                   />
                 </div>
                 <div className={styles.rightBar}>
@@ -117,7 +135,7 @@ const ProFileDataForm = (props) => {
                     name={"twitter"}
                     placeholder={" link to your twitter "}
                     component={Input}
-                    value={props.profile.contacts.twitter}
+                    value={values.twitter}
                   />
 
                   <Field
@@ -125,7 +143,7 @@ const ProFileDataForm = (props) => {
                     name={"website"}
                     placeholder={" link to your website "}
                     component={Input}
-                    value={props.profile.contacts.website}
+                    value={values.website}
                   />
 
                   <Field
@@ -133,7 +151,7 @@ const ProFileDataForm = (props) => {
                     name={"youtube"}
                     placeholder={" link to your youtube "}
                     component={Input}
-                    value={props.profile.contacts.youtube}
+                    value={values.youtube}
                   />
 
                   <Field
@@ -141,7 +159,7 @@ const ProFileDataForm = (props) => {
                     name={"mainLink"}
                     placeholder={"   your mainLink "}
                     component={Input}
-                    value={props.profile.contacts.mainLink}
+                    value={values.mainLink}
                   />
                 </div>
               </div>

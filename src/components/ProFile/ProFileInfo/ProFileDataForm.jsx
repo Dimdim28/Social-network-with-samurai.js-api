@@ -98,6 +98,7 @@ const ProFileDataForm = (props) => {
               <div className={styles.contacts}>
                 <div className={styles.leftBar}>
                   <Field
+                    validate={formHelpers.githubLinkValidation}
                     autoComplete={"github"}
                     name={"github"}
                     placeholder={" link to your github "}
@@ -106,6 +107,7 @@ const ProFileDataForm = (props) => {
                   />
 
                   <Field
+                    validate={formHelpers.vkLinkValidation}
                     autoComplete={"vk"}
                     name={"vk"}
                     placeholder={" link to your vk "}
@@ -114,6 +116,7 @@ const ProFileDataForm = (props) => {
                   />
 
                   <Field
+                    validate={formHelpers.facebookLinkValidation}
                     autoComplete={"facebook"}
                     name={"facebook"}
                     placeholder={" link to your facebook "}
@@ -122,6 +125,7 @@ const ProFileDataForm = (props) => {
                   />
 
                   <Field
+                    validate={formHelpers.instagramLinkValidation}
                     autoComplete={"instagram"}
                     name={"instagram"}
                     placeholder={" link to your instagram "}
@@ -131,6 +135,7 @@ const ProFileDataForm = (props) => {
                 </div>
                 <div className={styles.rightBar}>
                   <Field
+                    validate={formHelpers.twitterLinkValidation}
                     autoComplete={"twitter"}
                     name={"twitter"}
                     placeholder={" link to your twitter "}
@@ -147,6 +152,7 @@ const ProFileDataForm = (props) => {
                   />
 
                   <Field
+                    validate={formHelpers.youtubeLinkValidation}
                     autoComplete={"youtube"}
                     name={"youtube"}
                     placeholder={" link to your youtube "}

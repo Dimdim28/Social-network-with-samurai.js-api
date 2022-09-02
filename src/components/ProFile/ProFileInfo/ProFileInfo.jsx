@@ -7,6 +7,10 @@ import ProFileData from "./ProFileData";
 import ProFileDataForm from "./ProFileDataForm";
 
 export const ProFileInfo = (props) => {
+  const toEditMode = () => {
+    props.setEditMode(true);
+  };
+
   if (!props.profile) {
     return <Preloader />;
   }
@@ -55,17 +59,11 @@ export const ProFileInfo = (props) => {
           userId={props.userId}
         />
       ) : (
-        <ProFileData
-          toEditMode={() => {
-            props.setEditMode(true);
-          }}
-          profile={props.profile}
-          isOwner={props.isOwner}
-        />
+        <ProFileData profile={props.profile} isOwner={props.isOwner} />
       )}
       <div className={props.isOwner ? s.editBar : s.strangerStatusBar}>
         {props.isOwner && (
-          <span onClick={props.toEditMode} className={s.edit}>
+          <span onClick={toEditMode} className={s.edit}>
             ✎ Edit Profile
           </span>
         )}

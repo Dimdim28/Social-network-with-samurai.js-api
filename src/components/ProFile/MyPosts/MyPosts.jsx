@@ -18,7 +18,7 @@ export const MyPosts = (props) => {
         ))}
       </div>
 
-      <AddTextForm submit={submit} buttonLabel="Add Post" />
+      {props.isOwner && <AddTextForm submit={submit} buttonLabel="Add Post" />}
     </div>
   );
 };

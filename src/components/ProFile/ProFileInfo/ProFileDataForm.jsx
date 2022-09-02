@@ -24,7 +24,10 @@ const ProFileDataForm = (props) => {
         mainLink: data.mainLink,
       },
     };
-    props.saveProfile(dataObj).then(() => props.setEditMode(false));
+    props
+      .saveProfile(dataObj)
+      .then(() => props.setEditMode(false))
+      .catch(() => {});
   };
 
   const initialValues = {

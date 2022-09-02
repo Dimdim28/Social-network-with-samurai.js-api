@@ -23,11 +23,6 @@ const ProFileData = (props) => {
           {props.profile.lookingForAJobDescription}
         </p>
       </div>
-      {props.isOwner && (
-        <span onClick={props.toEditMode} className={s.edit}>
-          ✎
-        </span>
-      )}
     </div>
   );
 };

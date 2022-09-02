@@ -63,13 +63,21 @@ export const ProFileInfo = (props) => {
           isOwner={props.isOwner}
         />
       )}
-      {!props.editMode && (
-        <ProfileStatus
-          isOwner={props.isOwner}
-          status={props.status}
-          updateStatus={props.updateStatus}
-        />
-      )}
+      <div className={props.isOwner ? s.editBar : s.strangerStatusBar}>
+        {props.isOwner && (
+          <span onClick={props.toEditMode} className={s.edit}>
+            ✎ Edit Profile
+          </span>
+        )}
+
+        {!props.editMode && (
+          <ProfileStatus
+            isOwner={props.isOwner}
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
+        )}
+      </div>
     </div>
   );
 };

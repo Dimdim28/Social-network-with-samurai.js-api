@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import s from "./ProFileInfo.module.css";
 
 const ProfileStatus = (props) => {
   const [editMode, setEditMode] = useState(false);
@@ -21,19 +22,34 @@ const ProfileStatus = (props) => {
   }, [props.status]);
 
   return (
-    <>
+    <div className={s.profileStatus}>
       {editMode ? (
-        <input
-          data-testid="input-elem"
-          onChange={onStatusChange}
-          autoFocus={true}
-          onBlur={disActivateEditMode}
-          value={status}
-        />
+        <div>
+          <input
+            data-testid="input-elem"
+            onChange={onStatusChange}
+            autoFocus={true}
+            onBlur={disActivateEditMode}
+            value={status}
+            className={s.inputStatus}
+          />
+          {props.isOwner && (
+            <p className={s.statusDescription}>ⓘ click aside to save changes</p>
+          )}
+        </div>
       ) : (
-        <p onDoubleClick={activateEditMode}>{status || "No status"}</p>
+        <div>
+          <p className={s.paragraphStatus} onDoubleClick={activateEditMode}>
+            {status || "No status"}
+          </p>
+          {props.isOwner && (
+            <p className={s.statusDescription}>
+              ⓘ Double click to edit your status
+            </p>
+          )}
+        </div>
       )}
-    </>
+    </div>
   );
 };
 

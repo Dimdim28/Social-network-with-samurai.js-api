@@ -153,6 +153,53 @@
 
 .edit {
   font-weight: 500;
-  font-size: 25px;
+  font-size: 20px;
   cursor: pointer;
+}
+
+.editBar {
+  margin-top: 10px;
+  background-color: rgb(3, 59, 17);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.strangerStatusBar {
+  margin-top: 10px;
+  background-color: rgb(3, 59, 17);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.profileStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 40%;
+}
+
+.inputStatus {
+  outline: none;
+  width: 100%;
+  text-align: right;
+}
+
+.paragraphStatus {
+  cursor: pointer;
+  width: 100%;
+  text-align: right;
+}
+
+.statusDescription {
+  margin-top: 5px;
+  font-size: 15px;
+  color: rgb(165, 164, 164);
+  width: 100%;
+  text-align: end;
 }

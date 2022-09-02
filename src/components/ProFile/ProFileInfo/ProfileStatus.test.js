@@ -9,7 +9,7 @@ describe("ProfileStatus", () => {
   });
 
   test("input is invisible at first", () => {
-    render(<ProfileStatus status="status" />);
+    render(<ProfileStatus isOwner={true} status="status" />);
     const paragraph = screen.getByText("status");
     expect(paragraph).toBeInTheDocument();
     const input = screen.queryByTestId("input-elem");
@@ -17,11 +17,9 @@ describe("ProfileStatus", () => {
   });
 
   test("input is visible after doubleCLick on paragraph", () => {
-    render(<ProfileStatus status="status" />);
-    const paragraph = screen.getByText("status");
-    fireEvent.doubleClick(paragraph);
-    const paragraphAfterDoubleClick = screen.queryByText("status");
-    expect(paragraphAfterDoubleClick).toBe(null);
+    render(<ProfileStatus status="status" isOwner={true} />);
+    fireEvent.doubleClick(screen.getByText("status"));
+    expect(screen.queryByText("status")).toBe(null);
     const input = screen.getByTestId("input-elem");
     expect(input).toBeInTheDocument();
   });
@@ -29,7 +27,13 @@ describe("ProfileStatus", () => {
   test("after input text status should be updated", () => {
     const updateStatus = (status) => {};
 
-    render(<ProfileStatus status="status" updateStatus={updateStatus} />);
+    render(
+      <ProfileStatus
+        status="status"
+        isOwner={true}
+        updateStatus={updateStatus}
+      />
+    );
     const paragraph = screen.getByText("status");
     fireEvent.doubleClick(paragraph);
     const input = screen.getByTestId("input-elem");

@@ -57,6 +57,7 @@ const LoginForm = (props) => {
                 />
                 <Field
                   className={styles.input}
+                  validate={formHelpers.required}
                   autoComplete={"captcha"}
                   name={"captcha"}
                   placeholder={"Enter captcha"}

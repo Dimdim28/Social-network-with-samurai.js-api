@@ -43,3 +43,23 @@
   margin-top: 5px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 769px) {
+  .header img {
+    width: 50px;
+    height: 50px;
+  }
+  .name {
+    flex-direction: row;
+  }
+  .login {
+    font-size: 24px;
+    border-bottom: none;
+    border-right: 2px solid white;
+    padding-right: 4px;
+  }
+  .exit {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+}

@@ -70,9 +70,22 @@ const LoginForm = (props) => {
               <span className={styles.generalError}> {props.error} </span>
             )}
 
-            <button disabled={submitting || invalid} type="submit">
-              Login
-            </button>
+            <div className={styles.send}>
+              <button
+                disabled={submitting || invalid}
+                type="submit"
+                className={styles.button}
+              >
+                Login
+              </button>
+              <a
+                className={styles.link}
+                href="https://social-network.samuraijs.com/signUp"
+                target="blank"
+              >
+                Register
+              </a>
+            </div>
           </form>
         )}
       ></Form>

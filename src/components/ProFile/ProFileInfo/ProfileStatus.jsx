@@ -24,7 +24,7 @@ const ProfileStatus = (props) => {
   return (
     <div className={s.profileStatus}>
       {editMode ? (
-        <div>
+        <>
           <input
             data-testid="input-elem"
             onChange={onStatusChange}
@@ -36,9 +36,9 @@ const ProfileStatus = (props) => {
           {props.isOwner && (
             <p className={s.statusDescription}>ⓘ click aside to save changes</p>
           )}
-        </div>
+        </>
       ) : (
-        <div>
+        <>
           <p className={s.paragraphStatus} onDoubleClick={activateEditMode}>
             {status || "No status"}
           </p>
@@ -47,7 +47,7 @@ const ProfileStatus = (props) => {
               ⓘ Double click to edit your status
             </p>
           )}
-        </div>
+        </>
       )}
     </div>
   );

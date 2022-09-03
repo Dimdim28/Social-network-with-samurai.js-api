@@ -45,7 +45,7 @@ export const ProFileInfo = (props) => {
 
           <div className={s.profileText}>
             <p className={s.fullName}>{props.profile.fullName}</p>
-            <p className={s.aboutME}> {props.profile.aboutMe}</p>
+            <p className={s.aboutMe}> {props.profile.aboutMe}</p>
           </div>
         </div>
       )}
@@ -59,23 +59,25 @@ export const ProFileInfo = (props) => {
           userId={props.userId}
         />
       ) : (
-        <ProFileData profile={props.profile} isOwner={props.isOwner} />
-      )}
-      <div className={props.isOwner ? s.editBar : s.strangerStatusBar}>
-        {props.isOwner && (
-          <span onClick={toEditMode} className={s.edit}>
-            ✎ Edit Profile
-          </span>
-        )}
+        <>
+          <ProFileData profile={props.profile} isOwner={props.isOwner} />
+          <div className={props.isOwner ? s.editBar : s.strangerStatusBar}>
+            {props.isOwner && (
+              <span onClick={toEditMode} className={s.edit}>
+                ✎ Edit Profile
+              </span>
+            )}
 
-        {!props.editMode && (
-          <ProfileStatus
-            isOwner={props.isOwner}
-            status={props.status}
-            updateStatus={props.updateStatus}
-          />
-        )}
-      </div>
+            {!props.editMode && (
+              <ProfileStatus
+                isOwner={props.isOwner}
+                status={props.status}
+                updateStatus={props.updateStatus}
+              />
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -8,9 +8,39 @@
   background-color: rgb(0, 100, 0);
   padding: 10px;
   border-radius: 15px;
+  font-size: 20px;
 }
 
 .item img {
   max-width: 50px;
   border-radius: 50%;
+}
+
+@media screen and (max-width: 1024px) {
+  .item {
+    margin-bottom: 30px;
+    font-size: 18px;
+  }
+
+  .item img {
+    max-width: 40px;
+    border-radius: 50%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .posts {
+    padding: 10px;
+  }
+
+  .item {
+    margin-bottom: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .item img {
+    max-width: 30px;
+    border-radius: 50%;
+  }
 }

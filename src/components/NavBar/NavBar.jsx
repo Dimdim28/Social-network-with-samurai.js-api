@@ -22,22 +22,6 @@ export default function NavBar() {
           Messages
         </NavLink>
       </div>
-      <div className={s.item}>
-        <NavLink
-          className={({ isActive }) => (isActive ? s.active : s.inactive)}
-          to="/news"
-        >
-          News
-        </NavLink>
-      </div>
-      <div className={s.item}>
-        <NavLink
-          className={({ isActive }) => (isActive ? s.active : s.inactive)}
-          to="/music"
-        >
-          Music
-        </NavLink>
-      </div>
 
       <div className={s.item}>
         <NavLink
@@ -45,15 +29,6 @@ export default function NavBar() {
           to="/users"
         >
           Users
-        </NavLink>
-      </div>
-
-      <div className={s.item}>
-        <NavLink
-          className={({ isActive }) => (isActive ? s.active : s.inactive)}
-          to="/settings"
-        >
-          Settings
         </NavLink>
       </div>
 

@@ -1,6 +1,4 @@
 .postsArea {
-  height: 60%;
-  margin-bottom: 10%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -9,7 +7,7 @@
 
 .posts {
   overflow: auto;
-  height: 50%;
+  max-height: 150px;
   background-color: rgb(3, 59, 17);
   padding: 20px;
   border: 10px solid rgb(3, 59, 17);

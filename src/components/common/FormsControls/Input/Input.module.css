@@ -21,3 +21,7 @@
 .formControl.error input {
   border: 2px solid red;
 }
+
+.inputField {
+  font-size: 20px;
+}

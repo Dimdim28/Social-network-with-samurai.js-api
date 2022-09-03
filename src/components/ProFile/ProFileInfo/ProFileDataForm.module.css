@@ -10,6 +10,7 @@
   background-color: rgb(2, 32, 10);
   border-radius: 25px;
   padding: 10px;
+  font-size: 20px;
 }
 
 form {
@@ -25,6 +26,10 @@ h2 {
 
 h1 {
   font-size: 25px;
+  margin: 20px;
+}
+h2 {
+  font-size: 20px;
   margin: 20px;
 }
 
@@ -55,4 +60,26 @@ h1 {
 .button {
   width: 60%;
   margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .editProfileForm {
+    margin-top: 20px;
+    max-height: 80%;
+    overflow-y: auto;
+  }
+  .contacts {
+    flex-direction: column;
+  }
+  .leftBar,
+  .rightBar {
+    width: 100%;
+    margin: 0;
+  }
+
+  ::-webkit-scrollbar-track {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(2, 32, 10);
+  }
 }

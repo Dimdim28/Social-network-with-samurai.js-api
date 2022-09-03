@@ -19,7 +19,7 @@
 
 .title {
   font-size: 40px;
-  font-weight: 300;
+  font-weight: 400;
   color: white;
   margin-bottom: 10px;
   text-align: center;
@@ -30,4 +30,38 @@
   height: 50px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    min-width: 150px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .friends {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    min-width: 120px;
+  }
+
+  .title {
+    font-size: 25px;
+  }
+
+  .friends {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .wrapper {
+    display: none;
+  }
 }

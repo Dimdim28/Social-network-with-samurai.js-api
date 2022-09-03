@@ -10,7 +10,7 @@ export const Post = (props) => {
       <p>{props.message}</p>
       <div>
         <span>{props.likes}</span>
-        <span>Like</span>
+        <span>👍</span>
       </div>
     </div>
   );

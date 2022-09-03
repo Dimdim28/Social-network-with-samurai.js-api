@@ -21,7 +21,9 @@ export default function ProFile(props) {
         saveProfileError={props.saveProfileError}
         userId={props.userId}
       />
-      {!editMode && <MyPostsContainer isOwner={props.isOwner} />}
+      {!editMode && props.isOwner && (
+        <MyPostsContainer isOwner={props.isOwner} />
+      )}
     </div>
   );
 }

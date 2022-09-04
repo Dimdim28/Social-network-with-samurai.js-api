@@ -24,29 +24,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     follow: (userId) => {
-//       dispatch(follow(userId));
-//     },
-//     unfollow: (userId) => {
-//       dispatch(unfollow(userId));
-//     },
-//     setUsers: (users) => {
-//       dispatch(setUsers(users));
-//     },
-//     setCurrentPage: (pageNumber) => {
-//       dispatch(setCurrentPage(pageNumber));
-//     },
-//     setTotalCount: (totalUsersCount) => {
-//       dispatch(setUsersTotalCount(totalUsersCount));
-//     },
-//     setIsFetching: (isFetching) => {
-//       dispatch(setIsFetching(isFetching));
-//     },
-//   };
-// };
-
 class UsersContainer extends React.Component {
   pageChanging = (pageNumber) => {
     this.props.getUsers(pageNumber, this.props.pageSize);
@@ -56,17 +33,6 @@ class UsersContainer extends React.Component {
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
-
-  // onPageChanged = (pageNumber) => {
-  //   this.props.setCurrentPage(pageNumber);
-  //   axios
-  //     .get(
-  //       `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
-  //     )
-  //     .then((res) => {
-  //       this.props.setUsers(res.data.items);
-  //     });
-  // };
 
   nextPage = (pageNumber) => {
     if (

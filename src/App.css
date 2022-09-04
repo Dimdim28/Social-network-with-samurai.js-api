@@ -23,7 +23,7 @@
   overflow-y: auto;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .row {
     flex-direction: column;
     height: calc(100% - 70px);

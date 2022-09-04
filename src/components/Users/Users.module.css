@@ -1,5 +1,10 @@
+*::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
 .users {
-  height: calc(100% - 100px);
+  height: calc(100% - 120px);
   overflow-y: auto;
   width: 100%;
 }
@@ -31,6 +36,7 @@
   border: 2px solid black;
   border-radius: 5px;
   padding: 5px;
+  font-size: 20px;
 }
 
 .follow {
@@ -52,20 +58,16 @@
   border-radius: 15px;
 }
 
-.row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 .name {
   font-size: 25px;
   font-weight: 600;
+  overflow-x: auto;
 }
 
 .status {
   font-size: 20px;
   font-weight: 400;
+  overflow-x: auto;
 }
 
 .line {
@@ -73,15 +75,91 @@
   width: 100%;
   height: 100px;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
-.line span {
-  margin: 20px;
+.line div {
+  margin: 10px;
   border-radius: 50%;
   background-color: rgb(3, 59, 17);
-  padding: 10px;
   font-weight: 800;
   color: white;
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 70px;
+}
+
+@media screen and (max-width: 1024px) {
+  .user {
+    margin: 30px;
+  }
+  .image {
+    height: 70px;
+    width: 70px;
+  }
+  .button {
+    font-size: 16px;
+  }
+  .name {
+    font-size: 22px;
+  }
+  .status {
+    font-size: 18px;
+  }
+
+  .line div {
+    font-size: 20px;
+    text-align: center;
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .user {
+    margin: 20px;
+    background-color: rgb(3, 59, 17);
+    flex-direction: column;
+    border-radius: 15px;
+  }
+
+  .main {
+    flex-direction: row;
+    width: 100%;
+    min-height: 80px;
+  }
+
+  .image {
+    height: 60px;
+    width: 60px;
+  }
+  .button {
+    font-size: 15px;
+  }
+  .info {
+    width: 100%;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+  .status {
+    font-size: 16px;
+  }
+
+  .line div {
+    border-radius: 0px;
+    margin: 10px 0;
+    height: 50px;
+    width: 50px;
+  }
+  .line div:nth-child(2),
+  .line div:nth-child(4) {
+    border-left: 1px solid rgb(0, 100, 0);
+    border-right: 1px solid rgb(0, 100, 0);
+  }
 }

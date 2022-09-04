@@ -12,11 +12,21 @@ export const Users = (props) => {
   return (
     <>
       <div className={s.line}>
-        <span onClick={() => props.firstPage()}>{"<<"}</span>
-        <span onClick={() => props.prevPage(props.currentPage)}>{"<--"}</span>
-        <span>{props.currentPage}</span>
-        <span onClick={() => props.nextPage(props.currentPage)}>{"-->"}</span>
-        <span onClick={() => props.lastPage()}>{">>"}</span>
+        <div onClick={() => props.firstPage()}>
+          <span>{"<<"}</span>
+        </div>
+        <div onClick={() => props.prevPage(props.currentPage)}>
+          <span> {"<--"}</span>
+        </div>
+        <div>
+          <span>{props.currentPage}</span>
+        </div>
+        <div onClick={() => props.nextPage(props.currentPage)}>
+          <span>{"-->"}</span>
+        </div>
+        <div onClick={() => props.lastPage()}>
+          <span>{">>"}</span>
+        </div>
       </div>
       <div className={s.users}>
         {props.users.map((el) => {
@@ -59,13 +69,8 @@ export const Users = (props) => {
               </div>
 
               <div className={s.info}>
-                <div className={s.row}>
-                  <p className={s.name}>{el.name}</p>
-                </div>
-
-                <div>
-                  <p className={s.status}>{el.status}</p>
-                </div>
+                <p className={s.name}>{el.name}</p>
+                <p className={s.status}>{el.status}</p>
               </div>
             </div>
           );

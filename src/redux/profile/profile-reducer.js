@@ -8,6 +8,7 @@ const types = {
   SPS: "SAVE-PHOTO-SUCCESS",
   SPE: "SAVE-PHOTO-ERROR",
   SPRE: "SAVE-PROFILE-ERROR",
+  SPIF: "SET-PROFILE-IS-FETCHING",
 };
 
 let initialState = {
@@ -20,6 +21,7 @@ let initialState = {
   status: "",
   savePhotoError: null,
   saveProfileError: null,
+  isFetching: false,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -68,6 +70,13 @@ const profileReducer = (state = initialState, action) => {
       };
     }
 
+    case types.SPIF: {
+      return {
+        ...state,
+        isFetching: action.isFetching,
+      };
+    }
+
     default:
       return state;
   }
@@ -99,12 +108,19 @@ export const saveProfileError = (saveProfileError) => {
   };
 };
 
+export const setFetchingStatus = (isFetching) => ({
+  type: types.SPIF,
+  isFetching,
+});
+
 export const setUserProfile = (profile) => ({ type: types.SUP, profile });
 export const setStatus = (status) => ({ type: types.SS, status });
 
 export const getProfile = (userId) => async (dispatch) => {
+  dispatch(setFetchingStatus(true));
   const res = await profileAPI.getProfile(userId);
   dispatch(setUserProfile(res.data));
+  dispatch(setFetchingStatus(false));
 };
 
 export const getStatus = (userId) => async (dispatch) => {
@@ -129,7 +145,7 @@ export const savePhoto = (file) => async (dispatch) => {
 export const saveProfile = (profile) => async (dispatch) => {
   const res = await profileAPI.saveProfile(profile);
   if (!res.data.resultCode) {
-    dispatch(getProfile(profile.userId));
+    await dispatch(getProfile(profile.userId));
   } else {
     const message = res.data.messages[0];
     dispatch(saveProfileError(message));

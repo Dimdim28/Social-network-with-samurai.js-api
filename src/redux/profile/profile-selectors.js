@@ -17,4 +17,7 @@ export const profileSelectors = {
   getSaveProfileError(state) {
     return state.profileReducer.saveProfileError;
   },
+  getProfileFetchingStatus(state) {
+    return state.profileReducer.isFetching;
+  },
 };

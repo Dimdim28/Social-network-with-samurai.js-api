@@ -13,13 +13,18 @@ import {
 import ProFile from "./ProFile";
 import { profileSelectors } from "../../redux/profile/profile-selectors";
 import { authSelectors } from "../../redux/auth/auth-selectors";
+import Preloader from "../common/Preloader/Preloader";
 
 const ProFileContainer = (props) => {
   const { getProfile, getStatus, userId } = props;
+  console.log("profileContainer", props);
+
   useEffect(() => {
     getProfile(userId);
     getStatus(userId);
   }, [userId, getProfile, getStatus]);
+
+  if (props.isFetching || !props.profile) return <Preloader />;
 
   return (
     <ProFile
@@ -43,6 +48,7 @@ const mapStateToProps = (state) => ({
   ownerId: authSelectors.getId(state),
   savePhotoError: profileSelectors.getSavePhotoError(state),
   saveProfileError: profileSelectors.getSaveProfileError(state),
+  isFetching: profileSelectors.getProfileFetchingStatus(state),
 });
 
 function WithRouterComponent(Component) {

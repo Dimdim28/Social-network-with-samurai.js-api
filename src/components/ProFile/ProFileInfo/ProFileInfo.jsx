@@ -1,5 +1,5 @@
 import React from "react";
-import Preloader from "../../common/Preloader/Preloader";
+// import Preloader from "../../common/Preloader/Preloader";
 import s from "./ProFileInfo.module.css";
 import user from "../../../assets/images/avatar.png";
 import ProfileStatus from "./ProfileStatus";
@@ -7,13 +7,15 @@ import ProFileData from "./ProFileData";
 import ProFileDataForm from "./ProFileDataForm";
 
 export const ProFileInfo = (props) => {
+  console.log("profileInfo", props);
+
   const toEditMode = () => {
     props.setEditMode(true);
   };
 
-  if (!props.profile) {
-    return <Preloader />;
-  }
+  // if (!props.profile) {
+  //   return <Preloader />;
+  // }
 
   const onMainPhotoSelected = (e) => {
     if (e.target.files[0]) props.savePhoto(e.target.files[0]);

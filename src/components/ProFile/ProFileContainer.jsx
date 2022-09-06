@@ -28,7 +28,6 @@ const ProFileContainer = (props) => {
 
   return (
     <ProFile
-      {...props}
       profile={props.profile}
       status={props.status}
       updateStatus={props.updateStatus}
@@ -37,6 +36,7 @@ const ProFileContainer = (props) => {
       saveProfile={props.saveProfile}
       userId={props.ownerId}
       saveProfileError={props.saveProfileError}
+      savePhotoError={props.savePhotoError}
     />
   );
 };

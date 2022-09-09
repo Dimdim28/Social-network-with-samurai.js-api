@@ -6,6 +6,13 @@
   background-color: rgb(0, 100, 0);
   padding-left: 5px;
   margin-left: 10px;
+  justify-content: space-between;
+}
+
+.items {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .item {
@@ -35,5 +42,10 @@
     padding-bottom: 10px;
     position: absolute;
     bottom: 0;
+  }
+  .items {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
   }
 }

@@ -7,6 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding-bottom: 20px;
 }
 
 .friend {
@@ -18,7 +19,7 @@
 }
 
 .title {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 400;
   color: white;
   margin-bottom: 10px;

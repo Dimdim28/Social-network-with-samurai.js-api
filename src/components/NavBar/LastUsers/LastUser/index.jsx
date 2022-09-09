@@ -1,6 +1,6 @@
 import React from "react";
-import s from "../Friends.module.css";
+import s from "../LastUsers.module.css";
 
-export const Friend = (props) => {
+export const User = (props) => {
   return <div className={s.friend}>{props.name}</div>;
 };

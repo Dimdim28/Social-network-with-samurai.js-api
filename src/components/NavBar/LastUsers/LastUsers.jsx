@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { Friend } from "./Friend";
-import s from "./Friends.module.css";
+import { User } from "./LastUser";
+import s from "./LastUsers.module.css";
 
-export const Friends = (props) => {
+export const LastUsers = (props) => {
   const { users, getLastUsers } = props;
   const [first, second, third] = users.map((user) => user.name);
   useEffect(() => {
@@ -14,7 +14,7 @@ export const Friends = (props) => {
       <h1 className={s.title}>Last registered users</h1>
       <div className={s.friends}>
         {props.users.map((friend) => (
-          <Friend name={friend.name} key={friend.key} />
+          <User name={friend.name} key={friend.key} />
         ))}
       </div>
     </div>

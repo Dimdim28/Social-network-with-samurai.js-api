@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { Friends } from "./Friends";
+import { LastUsers } from "./LastUsers";
 import { getLastUsers } from "../../../redux/sidebar/sidebar-reducer";
 import { sidebarSelectors } from "../../../redux/sidebar/sidebar-selectors";
 
@@ -10,6 +10,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export const FriendsContainer = compose(
+export const LastUsersContainer = compose(
   connect(mapStateToProps, { getLastUsers })
-)(Friends);
+)(LastUsers);

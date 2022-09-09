@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { FriendsContainer } from "./Friends/FriendsContainer";
+import { LastUsersContainer } from "./LastUsers/LastUsersContainer";
 import s from "./Navbar.module.css";
 
 export default function NavBar() {
@@ -34,7 +34,7 @@ export default function NavBar() {
         </div>
       </div>
 
-      <FriendsContainer />
+      <LastUsersContainer />
     </nav>
   );
 }

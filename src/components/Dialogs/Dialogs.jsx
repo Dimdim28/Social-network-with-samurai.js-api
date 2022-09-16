@@ -19,6 +19,8 @@ export const Dialogs = (props) => {
             name={el.name}
             isActive={el.isActive}
             avatar={el.avatar}
+            chooseDialog={props.chooseDialog}
+            id={el.id}
           />
         ))}
       </div>

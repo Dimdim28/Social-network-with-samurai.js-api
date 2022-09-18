@@ -22,34 +22,73 @@ const ProfileStatus = (props) => {
   }, [props.status]);
 
   return (
-    <div className={s.profileStatus}>
-      {editMode ? (
-        <>
-          <input
-            data-testid="input-elem"
-            onChange={onStatusChange}
-            autoFocus={true}
-            onBlur={disActivateEditMode}
-            value={status}
-            className={s.inputStatus}
-          />
-          {props.isOwner && (
-            <p className={s.statusDescription}>ⓘ click aside to save changes</p>
+    <>
+      <div className={s.desctopStatus}>
+        <div className={s.profileStatus}>
+          {editMode ? (
+            <>
+              <input
+                data-testid="input-elem"
+                onChange={onStatusChange}
+                autoFocus={true}
+                onBlur={disActivateEditMode}
+                value={status}
+                className={s.inputStatus}
+              />
+              {props.isOwner && (
+                <p className={s.statusDescription}>
+                  ⓘ click aside to save changes
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              <p className={s.paragraphStatus} onDoubleClick={activateEditMode}>
+                {status || "No status"}
+              </p>
+              {props.isOwner && (
+                <p className={s.statusDescription}>
+                  ⓘ Double click to edit your status
+                </p>
+              )}
+            </>
           )}
-        </>
-      ) : (
-        <>
-          <p className={s.paragraphStatus} onDoubleClick={activateEditMode}>
-            {status || "No status"}
-          </p>
-          {props.isOwner && (
-            <p className={s.statusDescription}>
-              ⓘ Double click to edit your status
-            </p>
+        </div>
+      </div>
+
+      <div className={s.mobileStatus}>
+        <div className={s.profileStatus}>
+          {editMode ? (
+            <>
+              <input
+                data-testid="input-elem"
+                onChange={onStatusChange}
+                autoFocus={true}
+                onBlur={disActivateEditMode}
+                value={status}
+                className={s.inputStatus}
+              />
+              {props.isOwner && (
+                <p className={s.statusDescription}>
+                  ⓘ click aside to save changes
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              <p className={s.paragraphStatus} onTouchStart={activateEditMode}>
+                {status || "No status"}
+              </p>
+              {props.isOwner && (
+                <p className={s.statusDescription}>
+                  ⓘ Hold click to edit your status
+                </p>
+              )}
+            </>
           )}
-        </>
-      )}
-    </div>
+        </div>
+      </div>
+    </>
   );
 };
 

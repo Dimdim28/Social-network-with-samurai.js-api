@@ -8,6 +8,7 @@ import { initializeApp } from "./redux/app/app-reducer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import NavBar from "./components/NavBar/NavBar";
 import { appSelectors } from "./redux/app/app-selectors";
+import About from "./components/About/About";
 
 const UsersContainer = React.lazy(() =>
   import("./components/Users/UsersContainer")
@@ -39,6 +40,7 @@ class App extends Component {
                 <Route path="/dialogs" element={<DialogsContainer />} />
                 <Route path="/users" element={<UsersContainer />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/" element={<About />} />
               </Routes>
             </Suspense>
           </div>

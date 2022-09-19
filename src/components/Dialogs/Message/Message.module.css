@@ -36,7 +36,7 @@
   padding: 20px;
   word-wrap: break-word;
   word-break: break-all;
-  max-width: 90%;
+  max-width: 70%;
 }
 
 @media screen and (max-width: 768px) {

@@ -28,7 +28,7 @@ const ProfileStatus = (props) => {
           {editMode ? (
             <>
               <input
-                data-testid="input-elem"
+                data-testid="input-elem-desctop"
                 onChange={onStatusChange}
                 autoFocus={true}
                 onBlur={disActivateEditMode}
@@ -43,7 +43,11 @@ const ProfileStatus = (props) => {
             </>
           ) : (
             <>
-              <p className={s.paragraphStatus} onDoubleClick={activateEditMode}>
+              <p
+                data-testid="status-elem-desctop"
+                className={s.paragraphStatus}
+                onDoubleClick={activateEditMode}
+              >
                 {status || "No status"}
               </p>
               {props.isOwner && (
@@ -61,7 +65,7 @@ const ProfileStatus = (props) => {
           {editMode ? (
             <>
               <input
-                data-testid="input-elem"
+                data-testid="input-elem-mobile"
                 onChange={onStatusChange}
                 autoFocus={true}
                 onBlur={disActivateEditMode}
@@ -76,7 +80,11 @@ const ProfileStatus = (props) => {
             </>
           ) : (
             <>
-              <p className={s.paragraphStatus} onTouchStart={activateEditMode}>
+              <p
+                className={s.paragraphStatus}
+                onTouchStart={activateEditMode}
+                data-testid="status-elem-mobile"
+              >
                 {status || "No status"}
               </p>
               {props.isOwner && (

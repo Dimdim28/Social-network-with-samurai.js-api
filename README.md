@@ -40,5 +40,5 @@
 
 
 ## Speed tests:
-![image](https://user-images.githubusercontent.com/89345760/193514056-1723ff43-8370-4051-a09e-2ce262643672.png)
-![image](https://user-images.githubusercontent.com/89345760/193514094-440f3b17-74f0-4d8b-874d-743db6ab8074.png)
+<image src = "https://user-images.githubusercontent.com/89345760/193514056-1723ff43-8370-4051-a09e-2ce262643672.png" width = "50%" /><image src = "https://user-images.githubusercontent.com/89345760/193514094-440f3b17-74f0-4d8b-874d-743db6ab8074.png" width = "50%" />
+

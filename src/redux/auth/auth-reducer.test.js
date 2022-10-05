@@ -1,7 +1,7 @@
 import authReducer, {
   setAuthUserData,
   setEmptyUserData,
-  setError,
+  setLoginError,
 } from "./auth-reducer";
 
 const initialState = {
@@ -63,7 +63,7 @@ it("after setting empty user data isAuth should be equal false", () => {
 });
 
 it("error message should be correct after setting error", () => {
-  const action = setError("error-message");
+  const action = setLoginError("error-message");
   const newState = authReducer(initialState, action);
-  expect(newState.error).toBe("error-message");
+  expect(newState.loginError).toBe("error-message");
 });

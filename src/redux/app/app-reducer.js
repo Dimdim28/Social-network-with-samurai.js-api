@@ -1,3 +1,4 @@
+import { timeout } from "../../helpers/promiseHelpers";
 import { authMe } from "../auth/auth-reducer";
 
 export const types = {
@@ -39,11 +40,12 @@ export const initializedSuccess = () => ({
 export const setServerError = (error) => ({ type: types.SSE, error });
 
 export const initializeApp = () => (dispatch) => {
-  dispatch(authMe())
-    .then(() => {
+  timeout(
+    5000,
+    dispatch(authMe()).then(() => {
       dispatch(initializedSuccess());
     })
-    .catch((err) => dispatch(setServerError(true)));
+  ).catch((err) => dispatch(setServerError(true)));
 };
 
 export default appReducer;

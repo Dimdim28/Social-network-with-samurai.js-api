@@ -20,7 +20,7 @@ const Login = (props) => {
 const mapStateToProps = (state) => {
   return {
     isAuth: authSelectors.getIsAuth(state),
-    error: authSelectors.getError(state),
+    error: authSelectors.getLoginError(state),
     captchaUrl: authSelectors.getCaptcha(state),
   };
 };

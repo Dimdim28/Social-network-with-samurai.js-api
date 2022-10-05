@@ -2,10 +2,12 @@ import { authMe } from "../auth/auth-reducer";
 
 export const types = {
   SI: "SET_INITIALIZED",
+  SSE: "SET_SERVER_ERROR",
 };
 
 let initialState = {
   initialized: false,
+  serverError: null,
 };
 
 const appReducer = (state = initialState, action) => {
@@ -13,6 +15,14 @@ const appReducer = (state = initialState, action) => {
     case types.SI: {
       return {
         ...state,
+        initialized: true,
+      };
+    }
+
+    case types.SSE: {
+      return {
+        ...state,
+        serverError: action.error,
         initialized: true,
       };
     }
@@ -26,10 +36,14 @@ export const initializedSuccess = () => ({
   type: types.SI,
 });
 
+export const setServerError = (error) => ({ type: types.SSE, error });
+
 export const initializeApp = () => (dispatch) => {
-  dispatch(authMe()).then(() => {
-    dispatch(initializedSuccess());
-  });
+  dispatch(authMe())
+    .then(() => {
+      dispatch(initializedSuccess());
+    })
+    .catch((err) => dispatch(setServerError(true)));
 };
 
 export default appReducer;

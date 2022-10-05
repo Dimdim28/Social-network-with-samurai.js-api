@@ -11,8 +11,8 @@ export const authSelectors = {
   getEmail(state) {
     return state.authReducer.email;
   },
-  getError(state) {
-    return state.authReducer.error;
+  getLoginError(state) {
+    return state.authReducer.loginError;
   },
   getCaptcha(state) {
     return state.authReducer.captchaUrl;

@@ -2,7 +2,7 @@ import { authAPI, securityAPI } from "../../api/api";
 
 export const types = {
   SUD: "SET_USER_DATA",
-  SE: "SET_ERROR",
+  SLE: "SET_LOGIN_ERROR",
   DUD: "DELETE_USER_DATA",
   SCU: "SET_CAPTCHA_URL",
 };
@@ -12,7 +12,7 @@ const initialState = {
   email: null,
   login: null,
   isAuth: false,
-  error: null,
+  loginError: null,
   captchaUrl: null,
 };
 
@@ -26,10 +26,10 @@ const authReducer = (state = initialState, action) => {
       };
     }
 
-    case types.SE: {
+    case types.SLE: {
       return {
         ...state,
-        error: action.error,
+        loginError: action.error,
       };
     }
 
@@ -65,7 +65,7 @@ export const setEmptyUserData = () => ({
   type: types.DUD,
 });
 
-export const setError = (error) => ({ type: types.SE, error });
+export const setLoginError = (error) => ({ type: types.SLE, error });
 
 export const setCaptchaUrl = (captchaUrl) => ({ type: types.SCU, captchaUrl });
 
@@ -90,7 +90,7 @@ export const getLoginUserData = (data) => async (dispatch) => {
     if (response.data.resultCode === 10) {
       dispatch(getCaptchaUrl());
     }
-    dispatch(setError(response.data.messages[0]));
+    dispatch(setLoginError(response.data.messages[0]));
   }
 };
 

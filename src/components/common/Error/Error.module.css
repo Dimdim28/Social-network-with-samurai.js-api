@@ -1,0 +1,83 @@
+.errorWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorModal {
+  height: 50%;
+  width: 50%;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.errorTitle {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.errorBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.errorText {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.emoji {
+  font-size: 60px;
+}
+
+@media screen and (max-width: 768px) {
+  .errorModal {
+    height: 60%;
+    width: 60%;
+    padding: 30px;
+  }
+  .errorTitle {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .errorModal {
+    height: 50%;
+    width: 60%;
+    padding: 25px;
+  }
+
+  .errorTitle {
+    margin-bottom: 20px;
+  }
+
+  .emoji {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .errorTitle {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  .errorModal {
+    height: 60%;
+    width: 60%;
+    padding: 20px;
+  }
+
+  .emoji {
+    font-size: 40px;
+  }
+}

@@ -27,12 +27,13 @@ const LoginForm = (props) => {
               autoComplete={"username"}
               name={"email"}
               placeholder={"Enter email"}
+              type={"email"}
               component={Input}
             />
             <Field
               className={styles.input}
               validate={formHelpers.required}
-              autoComplete={"current-password"}
+              autoComplete={"password"}
               name={"password"}
               placeholder={"Enter password"}
               type={"password"}

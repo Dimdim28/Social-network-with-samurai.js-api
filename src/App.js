@@ -9,6 +9,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import NavBar from "./components/NavBar/NavBar";
 import { appSelectors } from "./redux/app/app-selectors";
 import About from "./components/About/About";
+import Error from "./components/common/Error/Error";
 
 const UsersContainer = React.lazy(() =>
   import("./components/Users/UsersContainer")
@@ -28,24 +29,35 @@ class App extends Component {
 
   render() {
     if (!this.props.initialized) return <Preloader className="PreLoader" />;
+
     return (
       <div className="app-wrapper">
-        <HeaderContainer />
-        <div className="row">
-          <div className="app-wrapper-content">
-            <Suspense fallback={<Preloader />}>
-              <Routes>
-                <Route path="/profile/:userId" element={<ProFileContainer />} />
-                <Route path="/profile" element={<ProFileContainer />} />
-                <Route path="/dialogs" element={<DialogsContainer />} />
-                <Route path="/users" element={<UsersContainer />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element={<About />} />
-              </Routes>
-            </Suspense>
-          </div>
-          <NavBar />
-        </div>
+        {this.props.isError ? (
+          <Error />
+        ) : (
+          <>
+            {" "}
+            <HeaderContainer />
+            <div className="row">
+              <div className="app-wrapper-content">
+                <Suspense fallback={<Preloader />}>
+                  <Routes>
+                    <Route
+                      path="/profile/:userId"
+                      element={<ProFileContainer />}
+                    />
+                    <Route path="/profile" element={<ProFileContainer />} />
+                    <Route path="/dialogs" element={<DialogsContainer />} />
+                    <Route path="/users" element={<UsersContainer />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/" element={<About />} />
+                  </Routes>
+                </Suspense>
+              </div>
+              <NavBar />
+            </div>
+          </>
+        )}
       </div>
     );
   }
@@ -53,6 +65,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   initialized: appSelectors.getInitialized(state),
+  isError: appSelectors.getServerError(state),
 });
 
 export default connect(mapStateToProps, { initializeApp })(App);

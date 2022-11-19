@@ -35,7 +35,7 @@
 }
 
 .active {
-  color: gold;
+  color: var(--color-important-text);
 }
 .messagesArea {
   padding: 20px;

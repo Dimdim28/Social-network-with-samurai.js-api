@@ -1,3 +1,5 @@
+@import "../../../colors.module.css";
+
 .wrapper {
   margin-top: 40px;
   min-width: 240px;
@@ -15,14 +17,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  color: var(--color-light-text);
   margin-top: 10px;
 }
 
 .title {
   font-size: 30px;
   font-weight: 400;
-  color: white;
+  color: var(--color-light-text);
   margin-bottom: 10px;
   text-align: center;
 }

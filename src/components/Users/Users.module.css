@@ -96,7 +96,7 @@
   border-radius: 50%;
   background-color: var(--color-dark-background);
   font-weight: 800;
-  color: white;
+  color: var(--color-light-text);
   font-size: 25px;
   cursor: pointer;
   display: flex;

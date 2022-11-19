@@ -1,3 +1,5 @@
+@import "../../colors.module.css";
+
 .loginPage {
   width: 100%;
   height: 100%;
@@ -7,12 +9,12 @@
 }
 
 .loginWrapper {
-  background-color: rgb(2, 32, 10);
+  background-color: var(--color-dark-background);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--color-light-text);
   border-radius: 20px;
   padding: 20px;
 }
@@ -45,7 +47,7 @@
 }
 
 .generalError {
-  color: red;
+  color: var(--color-custom-red);
 }
 
 .send {
@@ -55,17 +57,30 @@
   justify-content: space-around;
   margin-top: 10px;
 }
+
+.button,
+.link {
+  color: var(--color-light-text);
+  background-color: var(--color-medium-background);
+  border: 2px solid var(--color-light-text);
+  border-radius: 5px;
+  outline: none;
+}
+
+.button:disabled,
+.link:disabled {
+  background-color: var(--color-background);
+  cursor: not-allowed;
+}
+
 .button {
   width: 40%;
   font-size: 18px;
-  background-color: white;
+  padding: 2px;
 }
+
 .link {
   text-decoration: none;
-  color: black;
-  background-color: white;
-  border-radius: 2px;
-  border: 1px solid black;
   font-size: 18px;
   width: 40%;
   text-align: center;

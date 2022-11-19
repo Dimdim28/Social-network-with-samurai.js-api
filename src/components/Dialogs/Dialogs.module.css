@@ -1,19 +1,16 @@
-*::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
-}
+@import "../../colors.module.css";
 
 .dialogs {
   display: flex;
   flex-direction: row;
-  color: white;
+  color: var(--color-light-text);
   height: 100%;
   width: 100%;
 }
 
 .dialogItems {
   height: 100%;
-  background-color: rgb(43, 131, 65);
+  background-color: var(--color-background);
   min-width: 160px;
   overflow-y: auto;
 }
@@ -26,7 +23,7 @@
 }
 
 .dialog:hover {
-  background-color: rgb(49, 167, 69);
+  background-color: var(--color-light-background);
 }
 
 .avatar {

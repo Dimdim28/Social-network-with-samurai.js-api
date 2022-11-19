@@ -1,3 +1,5 @@
+@import "./colors.module.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,12 +13,12 @@
 
 *::-webkit-scrollbar-track {
   border-radius: 100px;
-  background-color: rgb(2, 32, 10);
+  background-color: var(--color-light-background);
 }
 
 *::-webkit-scrollbar-thumb {
   border-radius: 100px;
-  background-color: white;
+  background-color: var(--color-light-text);
 }
 
 body {
@@ -25,7 +27,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(2, 32, 10);
+  background-color: var(--color-dark-background);
   width: 100vw;
   height: 100vh;
   overflow: hidden;

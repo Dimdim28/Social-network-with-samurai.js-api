@@ -1,11 +1,13 @@
+@import "../../../../colors.module.css";
+
 .item {
-  color: white;
+  color: var(--color-light-text);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 40px;
-  background-color: rgb(0, 100, 0);
+  background-color: var(--color-background);
   padding: 10px;
   border-radius: 15px;
   font-size: 20px;

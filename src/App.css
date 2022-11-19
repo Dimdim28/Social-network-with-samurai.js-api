@@ -1,3 +1,5 @@
+@import "./colors.module.css";
+
 .app-wrapper {
   max-width: 1200px;
   height: 100%;
@@ -17,7 +19,7 @@
 }
 
 .app-wrapper-content {
-  background-color: rgb(0, 100, 0);
+  background-color: var(--color-medium-background);
   width: 100%;
   height: 100%;
   overflow-y: auto;

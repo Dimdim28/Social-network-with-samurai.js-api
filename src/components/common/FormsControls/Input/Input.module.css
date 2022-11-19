@@ -1,3 +1,5 @@
+@import "../../../../colors.module.css";
+
 .formControl {
   width: 100%;
   color: white;
@@ -19,9 +21,13 @@
 }
 
 .formControl.error input {
-  border: 2px solid red;
+  border: 2px solid var(--color-custom-red);
 }
 
 .inputField {
   font-size: 20px;
+  color: var(--color-light-text);
+  background-color: var(--color-medium-background);
+  border: 2px solid var(--color-light-text);
+  outline: none;
 }

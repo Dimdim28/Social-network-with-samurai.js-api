@@ -17,7 +17,6 @@ import Preloader from "../common/Preloader/Preloader";
 
 const ProFileContainer = (props) => {
   const { getProfile, getStatus, userId } = props;
-  console.log("profileContainer", props);
 
   useEffect(() => {
     getProfile(userId);

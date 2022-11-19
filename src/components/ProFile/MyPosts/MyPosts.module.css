@@ -1,3 +1,5 @@
+@import "../../../colors.module.css";
+
 .postsArea {
   padding: 10px;
   display: flex;
@@ -8,7 +10,7 @@
 .posts {
   overflow: auto;
   max-height: 150px;
-  background-color: rgb(3, 59, 17);
+  background-color: var(--color-dark-background);
   padding: 20px;
-  border: 10px solid rgb(3, 59, 17);
+  border: 10px solid var(--color-dark-background);
 }

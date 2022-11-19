@@ -1,6 +1,8 @@
+@import "../../../../colors.module.css";
+
 .formControl {
   width: 100%;
-  color: white;
+  color: var(--color-light-text);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -8,6 +10,10 @@
 
 formControl .textArea {
   width: 100%;
+  color: var(--color-light-text);
+  background-color: var(--color-medium-background);
+  border: 2px solid var(--color-light-text);
+  outline: none;
 }
 
 formControl span {
@@ -16,5 +22,5 @@ formControl span {
 }
 
 .formControl.error textarea {
-  border: 2px solid red;
+  border: 2px solid var(--color-custom-red);
 }

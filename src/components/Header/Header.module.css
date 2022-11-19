@@ -1,8 +1,10 @@
+@import "../../colors.module.css";
+
 .header {
-  background-color: rgb(0, 100, 0);
+  background-color: var(--color-medium-background);
   width: 100%;
   margin-bottom: 10px;
-  color: white;
+  color: var(--color-light-text);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -12,7 +14,7 @@
 }
 
 .help {
-  color: white;
+  color: var(--color-light-text);
   text-decoration: none;
   font-size: 20px;
   border: none;
@@ -20,7 +22,7 @@
 
 .loginBlock a {
   text-decoration: none;
-  color: white;
+  color: var(--color-light-text);
 }
 
 .name {
@@ -33,13 +35,13 @@
 .login {
   font-weight: 600;
   font-size: 28px;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid var(--color-light-text);
 }
 
 .exit {
   font-weight: 700;
   font-size: 25px;
-  color: rgb(247, 48, 48);
+  color: var(--color-custom-red);
   margin-top: 5px;
   cursor: pointer;
 }
@@ -55,7 +57,7 @@
   .login {
     font-size: 24px;
     border-bottom: none;
-    border-right: 2px solid white;
+    border-right: 2px solid var(--color-light-text);
     padding-right: 4px;
   }
   .exit {

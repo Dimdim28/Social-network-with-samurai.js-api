@@ -7,15 +7,9 @@ import ProFileData from "./ProFileData";
 import ProFileDataForm from "./ProFileDataForm";
 
 export const ProFileInfo = (props) => {
-  console.log("profileInfo", props);
-
   const toEditMode = () => {
     props.setEditMode(true);
   };
-
-  // if (!props.profile) {
-  //   return <Preloader />;
-  // }
 
   const onMainPhotoSelected = (e) => {
     if (e.target.files[0]) props.savePhoto(e.target.files[0]);

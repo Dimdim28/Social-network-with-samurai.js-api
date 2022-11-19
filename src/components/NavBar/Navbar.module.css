@@ -1,9 +1,10 @@
+@import "../../colors.module.css";
+
 .nav {
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  grid-area: n;
-  background-color: rgb(0, 100, 0);
+  background-color: var(--color-medium-background);
   padding-left: 5px;
   margin-left: 10px;
   justify-content: space-between;
@@ -16,17 +17,17 @@
 }
 
 .item {
-  color: white;
+  color: var(--color-light-text);
   margin: 10px 0;
 }
 
 .active {
-  color: gold;
+  color: var(--color-important-text);
   text-decoration: none;
 }
 
 .inactive {
-  color: #fff;
+  color: var(--color-light-text);
   text-decoration: none;
 }
 

@@ -5,7 +5,10 @@ const About = () => {
     <div className={s.about}>
       <div className={s.aboutText}>
         <h1>General information</h1>
-
+        <p>
+          I used free version of api so you can use only only 20 post/put/delete
+          requests per hour.
+        </p>
         <p>Click on the help button on the top left to see this page.</p>
         <p>
           At the top right, you can log out of your account or log in if you are
@@ -55,7 +58,7 @@ const About = () => {
 
         <p>
           The api also does not allow working with dialogs and messages, so I
-          created three dialogs in bl and wrote the logic to work with them.
+          created three dialogs in BLL and wrote the logic to work with them.
         </p>
 
         <p>

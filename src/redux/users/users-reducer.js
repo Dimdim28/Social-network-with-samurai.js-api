@@ -80,17 +80,25 @@ export const setFollowingProgress = (followingProgress, userId) => ({
 
 export const getUsers = (currentPage, pageSize) => async (dispatch) => {
   dispatch(setIsFetching(true));
-  const data = await usersAPI.getUsers(currentPage, pageSize);
-  dispatch(setIsFetching(false));
-  dispatch(setUsers(data.items));
-  dispatch(setUsersTotalCount(data.totalCount));
+  try {
+    const data = await usersAPI.getUsers(currentPage, pageSize);
+    dispatch(setIsFetching(false));
+    dispatch(setUsers(data.items));
+    dispatch(setUsersTotalCount(data.totalCount));
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const following = async function (userId, dispatch, apiAction, successAction) {
   dispatch(setFollowingProgress(true, userId));
-  const res = await usersAPI[apiAction](userId);
-  if (res.data.resultCode === 0) dispatch(successAction(userId));
-  dispatch(setFollowingProgress(false, userId));
+  try {
+    const res = await usersAPI[apiAction](userId);
+    if (res.data.resultCode === 0) dispatch(successAction(userId));
+    dispatch(setFollowingProgress(false, userId));
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const follow = (userId) => (dispatch) => {

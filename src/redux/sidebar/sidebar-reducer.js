@@ -35,12 +35,16 @@ const sidebarReducer = (state = initialState, action) => {
 const setLastUsers = (users) => ({ type: types.SLU, users });
 
 export const getLastUsers = () => async (dispatch) => {
-  const lastUsers = await usersAPI.getUsers(1, 3);
-  const lastUsersNames = lastUsers.items.map((user, ind) => ({
-    name: user.name,
-    key: ind,
-  }));
+  try {
+    const lastUsers = await usersAPI.getUsers(1, 3);
+    const lastUsersNames = lastUsers.items.map((user, ind) => ({
+      name: user.name,
+      key: ind,
+    }));
 
-  dispatch(setLastUsers(lastUsersNames));
+    dispatch(setLastUsers(lastUsersNames));
+  } catch (err) {
+    console.log(err);
+  }
 };
 export default sidebarReducer;

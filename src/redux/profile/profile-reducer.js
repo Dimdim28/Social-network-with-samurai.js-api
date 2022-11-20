@@ -137,39 +137,60 @@ export const setUserProfile = (profile) => ({ type: types.SUP, profile });
 export const setStatus = (status) => ({ type: types.SS, status });
 
 export const getProfile = (userId) => async (dispatch) => {
-  dispatch(setFetchingStatus(true));
-  const res = await profileAPI.getProfile(userId);
-  dispatch(setUserProfile(res.data));
-  dispatch(setFetchingStatus(false));
+  try {
+    dispatch(setFetchingStatus(true));
+    const res = await profileAPI.getProfile(userId);
+    dispatch(setUserProfile(res.data));
+    dispatch(setFetchingStatus(false));
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 export const getStatus = (userId) => async (dispatch) => {
-  const res = await profileAPI.getStatus(userId);
-  dispatch(setStatus(res.data));
+  try {
+    const res = await profileAPI.getStatus(userId);
+    dispatch(setStatus(res.data));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const updateStatus = (status) => async (dispatch) => {
-  const res = await profileAPI.updateStatus(status);
-  if (!res.data.resultCode) dispatch(setStatus(status));
+  try {
+    const res = await profileAPI.updateStatus(status);
+    if (!res.data.resultCode) dispatch(setStatus(status));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const savePhoto = (file) => async (dispatch) => {
-  const res = await profileAPI.savePhoto(file);
-  if (!res.data.resultCode) {
-    dispatch(savePhotoSuccess(res.data.data.photos));
-    dispatch(savePhotoError(null));
+  try {
+    const res = await profileAPI.savePhoto(file);
+    if (!res.data.resultCode) {
+      dispatch(savePhotoSuccess(res.data.data.photos));
+      dispatch(savePhotoError(null));
+    }
+    if (res.data.resultCode === 1)
+      dispatch(savePhotoError(res.data.messages[0]));
+  } catch (error) {
+    console.log(error);
   }
-  if (res.data.resultCode === 1) dispatch(savePhotoError(res.data.messages[0]));
 };
 
 export const saveProfile = (profile) => async (dispatch) => {
-  const res = await profileAPI.saveProfile(profile);
-  if (!res.data.resultCode) {
-    await dispatch(getProfile(profile.userId));
-  } else {
-    const message = res.data.messages[0];
-    dispatch(saveProfileError(message));
-    return Promise.reject(message);
+  try {
+    const res = await profileAPI.saveProfile(profile);
+    if (!res.data.resultCode) {
+      await dispatch(getProfile(profile.userId));
+    } else {
+      const message = res.data.messages[0];
+      dispatch(saveProfileError(message));
+      return Promise.reject(message);
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 

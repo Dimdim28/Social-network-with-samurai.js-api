@@ -28,6 +28,8 @@
   text-align: start;
   font-size: 20px;
   font-weight: 400;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 1024px) {

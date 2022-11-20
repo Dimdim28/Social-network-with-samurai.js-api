@@ -4,12 +4,6 @@ import Header from "./Header";
 import { exit } from "../../redux/auth/auth-reducer";
 import { authSelectors } from "../../redux/auth/auth-selectors";
 
-class HeaderContainer extends Component {
-  render() {
-    return <Header {...this.props} />;
-  }
-}
-
 const mapStateToProps = (state) => ({
   isAuth: authSelectors.getIsAuth(state),
   login: authSelectors.getLogin(state),
@@ -17,4 +11,4 @@ const mapStateToProps = (state) => ({
   email: authSelectors.getEmail(state),
 });
 
-export default connect(mapStateToProps, { exit })(HeaderContainer);
+export default connect(mapStateToProps, { exit })(Header);

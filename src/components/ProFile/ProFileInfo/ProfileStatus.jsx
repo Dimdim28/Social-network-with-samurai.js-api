@@ -4,7 +4,6 @@ import s from "./ProFileInfo.module.css";
 const ProfileStatus = (props) => {
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
-  // console.log(status);
   const activateEditMode = () => {
     if (props.isOwner) setEditMode(true);
   };

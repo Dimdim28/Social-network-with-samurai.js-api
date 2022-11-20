@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
@@ -22,46 +22,45 @@ const ProFileContainer = React.lazy(() =>
 );
 const Login = React.lazy(() => import("./components/Login/Login"));
 
-class App extends Component {
-  componentDidMount() {
-    this.props.initializeApp();
-  }
+const App = (props) => {
+  const { initializeApp } = props;
+  useEffect(() => {
+    initializeApp();
+  }, [initializeApp]);
 
-  render() {
-    if (!this.props.initialized) return <Preloader className="PreLoader" />;
+  if (!props.initialized) return <Preloader className="PreLoader" />;
 
-    return (
-      <div className="app-wrapper">
-        {this.props.isError ? (
-          <Error />
-        ) : (
-          <>
-            {" "}
-            <HeaderContainer />
-            <div className="row">
-              <div className="app-wrapper-content">
-                <Suspense fallback={<Preloader />}>
-                  <Routes>
-                    <Route
-                      path="/profile/:userId"
-                      element={<ProFileContainer />}
-                    />
-                    <Route path="/profile" element={<ProFileContainer />} />
-                    <Route path="/dialogs" element={<DialogsContainer />} />
-                    <Route path="/users" element={<UsersContainer />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/" element={<About />} />
-                  </Routes>
-                </Suspense>
-              </div>
-              <NavBar />
+  return (
+    <div className="app-wrapper">
+      {props.isError ? (
+        <Error />
+      ) : (
+        <>
+          {" "}
+          <HeaderContainer />
+          <div className="row">
+            <div className="app-wrapper-content">
+              <Suspense fallback={<Preloader />}>
+                <Routes>
+                  <Route
+                    path="/profile/:userId"
+                    element={<ProFileContainer />}
+                  />
+                  <Route path="/profile" element={<ProFileContainer />} />
+                  <Route path="/dialogs" element={<DialogsContainer />} />
+                  <Route path="/users" element={<UsersContainer />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/" element={<About />} />
+                </Routes>
+              </Suspense>
             </div>
-          </>
-        )}
-      </div>
-    );
-  }
-}
+            <NavBar />
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => ({
   initialized: appSelectors.getInitialized(state),

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   follow,
   setCurrentPage,
@@ -24,69 +24,63 @@ const mapStateToProps = (state) => {
   };
 };
 
-class UsersContainer extends React.Component {
-  pageChanging = (pageNumber) => {
-    this.props.getUsers(pageNumber, this.props.pageSize);
-    this.props.setCurrentPage(pageNumber);
+const UserContainer = (props) => {
+  const { currentPage, pageSize, getUsers } = props;
+
+  useEffect(() => {
+    getUsers(currentPage, pageSize);
+  }, [currentPage, pageSize, getUsers]);
+
+  const pageChanging = (pageNumber) => {
+    props.getUsers(pageNumber, props.pageSize);
+    props.setCurrentPage(pageNumber);
   };
 
-  componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
-  }
-
-  nextPage = (pageNumber) => {
-    if (
-      pageNumber === Math.ceil(this.props.totalUsersCount / this.props.pageSize)
-    )
+  const nextPage = (pageNumber) => {
+    if (pageNumber === Math.ceil(props.totalUsersCount / props.pageSize))
       return;
     let newNumber = ++pageNumber;
-    this.pageChanging(newNumber);
+    pageChanging(newNumber);
   };
 
-  prevPage = (pageNumber) => {
+  const prevPage = (pageNumber) => {
     if (pageNumber === 1) return;
     let newNumber = --pageNumber;
-    this.pageChanging(newNumber);
+    pageChanging(newNumber);
   };
 
-  lastPage = () => {
-    const newNumber = Math.ceil(
-      this.props.totalUsersCount / this.props.pageSize
-    );
+  const lastPage = () => {
+    const newNumber = Math.ceil(props.totalUsersCount / props.pageSize);
 
-    if (this.props.currentPage === newNumber) return;
-    this.pageChanging(newNumber);
+    if (props.currentPage === newNumber) return;
+    pageChanging(newNumber);
   };
 
-  firstPage = () => {
+  const firstPage = () => {
     const newNumber = 1;
-    if (this.props.currentPage === newNumber) return;
-    this.pageChanging(newNumber);
+    if (props.currentPage === newNumber) return;
+    pageChanging(newNumber);
   };
 
-  render() {
-    console.log("usersContainer", this.props);
-
-    if (this.props.isFetching) return <Preloader />;
-    return (
-      <>
-        <Users
-          totalUsersCount={this.props.totalUsersCount}
-          pageSize={this.props.pageSize}
-          firstPage={this.firstPage}
-          prevPage={this.prevPage}
-          nextPage={this.nextPage}
-          lastPage={this.lastPage}
-          users={this.props.users}
-          currentPage={this.props.currentPage}
-          follow={this.props.follow}
-          unfollow={this.props.unfollow}
-          followingProgress={this.props.followingProgress}
-        />
-      </>
-    );
-  }
-}
+  if (props.isFetching) return <Preloader />;
+  return (
+    <>
+      <Users
+        totalUsersCount={props.totalUsersCount}
+        pageSize={props.pageSize}
+        firstPage={firstPage}
+        prevPage={prevPage}
+        nextPage={nextPage}
+        lastPage={lastPage}
+        users={props.users}
+        currentPage={props.currentPage}
+        follow={props.follow}
+        unfollow={props.unfollow}
+        followingProgress={props.followingProgress}
+      />
+    </>
+  );
+};
 
 export default compose(
   connect(mapStateToProps /*mapDispatchToProps*/, {
@@ -96,4 +90,4 @@ export default compose(
     getUsers,
   }),
   WithAuthRedirect
-)(UsersContainer);
+)(UserContainer);

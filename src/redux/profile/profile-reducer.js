@@ -172,4 +172,9 @@ export const saveProfile = (profile) => async (dispatch) => {
     return Promise.reject(message);
   }
 };
+
+export const removeProfileError = () => (dispatch) => {
+  dispatch(saveProfileError(null));
+};
+
 export default profileReducer;

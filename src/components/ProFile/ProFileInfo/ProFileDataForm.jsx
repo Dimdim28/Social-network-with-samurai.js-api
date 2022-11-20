@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Field, Form } from "react-final-form";
 import { formHelpers } from "../../../helpers/FormHelpers";
 import Input from "../../common/FormsControls/Input/Input";
 import styles from "./ProFileDataForm.module.css";
 
 const ProFileDataForm = (props) => {
+  const { removeProfileError } = props;
+
+  const initialValues = {
+    fullName: props.profile.fullName,
+    AboutMe: props.profile.aboutMe,
+    lookingForAJob: props.profile.lookingForAJob ? ["job"] : [],
+    lookingForAJobDescription: props.profile.lookingForAJobDescription,
+    github: props.profile.contacts.github,
+    vk: props.profile.contacts.vk,
+    facebook: props.profile.contacts.facebook,
+    instagram: props.profile.contacts.instagram,
+    twitter: props.profile.contacts.twitter,
+    website: props.profile.contacts.website,
+    youtube: props.profile.contacts.youtube,
+    mainLink: props.profile.contacts.mainLink,
+  };
+
+  useEffect(() => {
+    removeProfileError();
+  }, [initialValues.mainLink, initialValues.website, removeProfileError]);
+
   const onSubmit = (data) => {
     const lookingForAJob = Array.isArray(data.lookingForAJob) ? true : false;
     const dataObj = {
@@ -28,21 +49,6 @@ const ProFileDataForm = (props) => {
       .saveProfile(dataObj)
       .then(() => props.setEditMode(false))
       .catch(() => {});
-  };
-
-  const initialValues = {
-    fullName: props.profile.fullName,
-    AboutMe: props.profile.aboutMe,
-    lookingForAJob: props.profile.lookingForAJob ? ["job"] : [],
-    lookingForAJobDescription: props.profile.lookingForAJobDescription,
-    github: props.profile.contacts.github,
-    vk: props.profile.contacts.vk,
-    facebook: props.profile.contacts.facebook,
-    instagram: props.profile.contacts.instagram,
-    twitter: props.profile.contacts.twitter,
-    website: props.profile.contacts.website,
-    youtube: props.profile.contacts.youtube,
-    mainLink: props.profile.contacts.mainLink,
   };
 
   return (

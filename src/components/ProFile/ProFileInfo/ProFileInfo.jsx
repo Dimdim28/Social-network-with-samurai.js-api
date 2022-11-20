@@ -53,6 +53,7 @@ export const ProFileInfo = (props) => {
           saveProfile={props.saveProfile}
           saveProfileError={props.saveProfileError}
           userId={props.userId}
+          removeProfileError={props.removeProfileError}
         />
       ) : (
         <>

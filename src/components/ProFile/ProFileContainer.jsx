@@ -9,6 +9,7 @@ import {
   updateStatus,
   savePhoto,
   saveProfile,
+  removeProfileError,
 } from "../../redux/profile/profile-reducer";
 import ProFile from "./ProFile";
 import { profileSelectors } from "../../redux/profile/profile-selectors";
@@ -17,7 +18,6 @@ import Preloader from "../common/Preloader/Preloader";
 
 const ProFileContainer = (props) => {
   const { getProfile, getStatus, userId } = props;
-
   useEffect(() => {
     getProfile(userId);
     getStatus(userId);
@@ -36,6 +36,7 @@ const ProFileContainer = (props) => {
       userId={props.ownerId}
       saveProfileError={props.saveProfileError}
       savePhotoError={props.savePhotoError}
+      removeProfileError={props.removeProfileError}
     />
   );
 };
@@ -71,6 +72,7 @@ export default compose(
     updateStatus,
     savePhoto,
     saveProfile,
+    removeProfileError,
   }),
   WithRouterComponent,
   WithAuthRedirect

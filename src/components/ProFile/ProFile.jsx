@@ -5,7 +5,6 @@ import s from "./ProFile.module.css";
 
 export default function ProFile(props) {
   const [editMode, setEditMode] = useState(false);
-
   return (
     <div className={s.profile}>
       <ProFileInfo
@@ -20,6 +19,7 @@ export default function ProFile(props) {
         saveProfile={props.saveProfile}
         saveProfileError={props.saveProfileError}
         userId={props.userId}
+        removeProfileError={props.removeProfileError}
       />
       {!editMode && props.isOwner && (
         <MyPostsContainer isOwner={props.isOwner} />

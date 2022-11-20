@@ -1,32 +1,32 @@
 {
   "files": {
     "main.css": "/Social-network-with-samurai.js-api/static/css/main.5d6db878.css",
-    "main.js": "/Social-network-with-samurai.js-api/static/js/main.1b7aec22.js",
+    "main.js": "/Social-network-with-samurai.js-api/static/js/main.cb0cb248.js",
     "static/css/367.127ddb71.chunk.css": "/Social-network-with-samurai.js-api/static/css/367.127ddb71.chunk.css",
     "static/js/367.48c838b6.chunk.js": "/Social-network-with-samurai.js-api/static/js/367.48c838b6.chunk.js",
     "static/css/68.f8b5ac7d.chunk.css": "/Social-network-with-samurai.js-api/static/css/68.f8b5ac7d.chunk.css",
     "static/js/68.35d3b653.chunk.js": "/Social-network-with-samurai.js-api/static/js/68.35d3b653.chunk.js",
     "static/css/170.867ece31.chunk.css": "/Social-network-with-samurai.js-api/static/css/170.867ece31.chunk.css",
-    "static/js/170.2f946414.chunk.js": "/Social-network-with-samurai.js-api/static/js/170.2f946414.chunk.js",
+    "static/js/170.186a769d.chunk.js": "/Social-network-with-samurai.js-api/static/js/170.186a769d.chunk.js",
     "static/css/305.eb925207.chunk.css": "/Social-network-with-samurai.js-api/static/css/305.eb925207.chunk.css",
     "static/js/305.16d774ba.chunk.js": "/Social-network-with-samurai.js-api/static/js/305.16d774ba.chunk.js",
     "static/js/572.602e4645.chunk.js": "/Social-network-with-samurai.js-api/static/js/572.602e4645.chunk.js",
     "static/media/avatar.png": "/Social-network-with-samurai.js-api/static/media/avatar.d54b5cea3dabfb92c990.png",
     "index.html": "/Social-network-with-samurai.js-api/index.html",
     "main.5d6db878.css.map": "/Social-network-with-samurai.js-api/static/css/main.5d6db878.css.map",
-    "main.1b7aec22.js.map": "/Social-network-with-samurai.js-api/static/js/main.1b7aec22.js.map",
+    "main.cb0cb248.js.map": "/Social-network-with-samurai.js-api/static/js/main.cb0cb248.js.map",
     "367.127ddb71.chunk.css.map": "/Social-network-with-samurai.js-api/static/css/367.127ddb71.chunk.css.map",
     "367.48c838b6.chunk.js.map": "/Social-network-with-samurai.js-api/static/js/367.48c838b6.chunk.js.map",
     "68.f8b5ac7d.chunk.css.map": "/Social-network-with-samurai.js-api/static/css/68.f8b5ac7d.chunk.css.map",
     "68.35d3b653.chunk.js.map": "/Social-network-with-samurai.js-api/static/js/68.35d3b653.chunk.js.map",
     "170.867ece31.chunk.css.map": "/Social-network-with-samurai.js-api/static/css/170.867ece31.chunk.css.map",
-    "170.2f946414.chunk.js.map": "/Social-network-with-samurai.js-api/static/js/170.2f946414.chunk.js.map",
+    "170.186a769d.chunk.js.map": "/Social-network-with-samurai.js-api/static/js/170.186a769d.chunk.js.map",
     "305.eb925207.chunk.css.map": "/Social-network-with-samurai.js-api/static/css/305.eb925207.chunk.css.map",
     "305.16d774ba.chunk.js.map": "/Social-network-with-samurai.js-api/static/js/305.16d774ba.chunk.js.map",
     "572.602e4645.chunk.js.map": "/Social-network-with-samurai.js-api/static/js/572.602e4645.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5d6db878.css",
-    "static/js/main.1b7aec22.js"
+    "static/js/main.cb0cb248.js"
   ]
 }

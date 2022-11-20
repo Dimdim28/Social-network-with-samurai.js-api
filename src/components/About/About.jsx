@@ -9,6 +9,11 @@ const About = () => {
           I used free version of api so you can use only only 20 post/put/delete
           requests per hour.
         </p>
+        <p>
+          account for testing: <br /> dimdimsamurainetworktest@gmail.com <br />
+          Rfyfky11
+        </p>
+
         <p>Click on the help button on the top left to see this page.</p>
         <p>
           At the top right, you can log out of your account or log in if you are

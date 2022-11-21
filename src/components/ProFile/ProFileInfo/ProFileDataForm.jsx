@@ -168,7 +168,7 @@ const ProFileDataForm = (props) => {
                   <Field
                     autoComplete={"mainLink"}
                     name={"mainLink"}
-                    placeholder={"   your mainLink "}
+                    placeholder={" your mainLink "}
                     component={Input}
                     value={values.mainLink}
                   />

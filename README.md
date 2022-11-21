@@ -1,7 +1,10 @@
 # Social network written in React and using the [free version of SamuraiJs api](https://social-network.samuraijs.com/docs)
 
+## account for testing:
+* dimdimsamurainetworktest@gmail.com
+* Rfyfky11
 ## Information:
-
+* I used free version of api so you can use only only 20 post/put/delete requests per hour.
 * If the deployed site does not open, use vpn
 * I used the free version of the api so here is what you can do by going to the site:
   * Login or Register, every ten login attempts you will see a captcha that needs to be solved. You can select the option: remember me and then for some time you will not need to go through authorization. Also, you can always log out.
@@ -30,15 +33,5 @@
 * Lazy Loading (React.lazy() and Suspense)
 * React Testing Library and Jest
 
-## Sсreenshots:
-<image src = "https://user-images.githubusercontent.com/89345760/193523514-85e21df3-9fb7-4a8f-8caf-47a9df49d2e3.png"  width = "33%" /><image src = "https://user-images.githubusercontent.com/89345760/193523599-19e14214-7e94-49bd-a03a-002c2209c8c6.png"  width = "33%"  /><image src = "https://user-images.githubusercontent.com/89345760/193526871-439bb50d-3b90-4b40-be33-3ce78b827812.png"  width = "33%" />
-
-<image src = "https://user-images.githubusercontent.com/89345760/193532326-d704f352-beef-449a-a09a-172e66139966.png" width = "33%" /><image src = "https://user-images.githubusercontent.com/89345760/193531694-5cf67ae8-6034-48d2-a2f5-df78a36fc00e.png" width = "33%"   /><image src = "https://user-images.githubusercontent.com/89345760/193531431-d8ec1012-fd4a-4618-8e78-9be57274d433.png" width = "33%"   />
-
-
-<image src = "https://user-images.githubusercontent.com/89345760/193532866-4b188bf0-97ac-4138-b479-42c397f3e2cd.png" width = "25%" /><image src = "https://user-images.githubusercontent.com/89345760/193532918-267d6eb4-c9fe-4a4c-879f-3ca2f8c1304a.png" width = "25%"   /><image src = "https://user-images.githubusercontent.com/89345760/193532970-b6f283c1-eaa3-4bdc-978b-d55bc84c257d.png" width = "25%"   /><image src = "https://user-images.githubusercontent.com/89345760/193533060-e13470a6-d742-44da-8cff-7411b962d0cb.png" width = "25%"   />
-
-
 ## Speed tests:
-<image src = "https://user-images.githubusercontent.com/89345760/193514056-1723ff43-8370-4051-a09e-2ce262643672.png" width = "50%" /><image src = "https://user-images.githubusercontent.com/89345760/193514094-440f3b17-74f0-4d8b-874d-743db6ab8074.png" width = "50%" />
-
+<image src = "https://user-images.githubusercontent.com/89345760/202932381-9be6d073-5d34-4e2d-9e52-287abf60c50f.png" width = "50%" /><image src = "https://user-images.githubusercontent.com/89345760/202932347-d43abd76-1640-46f5-98b8-ecda4e25a893.png" width = "50%" />

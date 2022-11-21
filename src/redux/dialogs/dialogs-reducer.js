@@ -29,7 +29,7 @@ const initialState = {
         message: "Hello",
         id: 0,
         person: "first",
-        avatar: firstAvatar,
+        avatar: thirdAvatar,
       },
     ],
     [
@@ -43,25 +43,25 @@ const initialState = {
         message: "Hello)",
         id: 1,
         person: "first",
-        avatar: firstAvatar,
+        avatar: fourthAvatar,
       },
     ],
   ],
   dialogs: [
     {
-      name: "Dima",
+      name: "Test1",
       isActive: true,
       id: 0,
       avatar: firstAvatar,
     },
     {
-      name: "Valera",
+      name: "Test2",
       isActive: false,
       id: 1,
       avatar: thirdAvatar,
     },
     {
-      name: "Sergey",
+      name: "Test3",
       isActive: false,
       id: 2,
       avatar: fourthAvatar,

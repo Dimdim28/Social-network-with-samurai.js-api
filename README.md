@@ -1,5 +1,6 @@
 # Social network written in React and using the [free version of SamuraiJs api](https://social-network.samuraijs.com/docs)
-
+## account for testing:
+INCOGNITO MODE WILL NOT LET YOU USE WEBSITE, COOKIES WILL BLOCKED =(
 ## account for testing:
 * dimdimsamurainetworktest@gmail.com
 * Rfyfky11
